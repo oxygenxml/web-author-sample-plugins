@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="com.oxygenxml.SamplePluginExtension"
+
+    id="web-author-side-by-side-editors"
+    name="web-author-side-by-side-editors"
+    description="Side by side oXygen XML Web Author preview editors."
+    version="${project.nosnapshot.version}"
+    vendor="com.oxygenxml">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <!-- You can access static files at XML_WEB_AUTHOR/plugin-resources/web-author-side-by-side-editors/ -->
+  <extension type="WebappStaticResourcesFolder" path="web/static/" href="web-author-side-by-side-editors"/>
+
+  <extension type="WebappCSSResource" href="web/static/custom.css"/>
+
+  <extension type="AuthorStylesheet" href="web/static/side-by-side-author-stylesheet.css"/>
+</plugin>

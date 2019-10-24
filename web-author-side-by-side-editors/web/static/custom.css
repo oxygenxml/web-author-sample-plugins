@@ -1,0 +1,41 @@
+#editor-frame-wrapper.side-by-side-wrapper {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#editor-frame-wrapper.side-by-side-wrapper .left-editor-wrapper,
+#editor-frame-wrapper.side-by-side-wrapper .right-editor-wrapper {
+  flex-basis: 50%;
+  position: relative;
+  z-index: 10;
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+
+}
+
+#editor-frame-wrapper.side-by-side-wrapper .side-by-side-separator {
+  width: 100px;
+  min-width: 100px;
+  border-left: 1px solid #c6c6c6;
+  border-right: 1px solid #c6c6c6;
+  background-color: #fbfbfb
+}
+
+/* Full width for the editors */
+#editor-frame-wrapper.side-by-side-wrapper *[data-root="true"] {
+  width: 100%;
+  margin: 0;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+#editor-frame-wrapper.side-by-side-wrapper .side-by-side-scroll-button {
+  width: 16px;
+  height: 16px;
+  background: url('../../../plugin-resources/web-author-side-by-side-editors/scroll.png');
+}

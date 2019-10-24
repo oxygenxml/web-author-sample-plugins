@@ -1,0 +1,6 @@
+[id]:before {
+  content: oxy_editor(
+      webappRendererClassName, "ro.sync.servlet.plugin.GenericFormControlRenderer"
+      edit, "custom",
+      element-to-scroll, attr(id));
+}
