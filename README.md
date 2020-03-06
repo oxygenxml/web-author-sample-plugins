@@ -1,6 +1,14 @@
 # web-author-sample-plugins
 Sample plugins for Oxygen XML Web Author
 
+## Installation
+
+Each folder contains one plugin. To install such a plugin you should:
+ 1. Download the entire repository 
+ 1. Create an archive with just the folder that contains the desired plugin
+ 1. Go to the Web Author **Administration Page**
+ 1. In the **Plugins** section, click **Upload Plugin** and choose the archive made at step 2.
+
 ## Plugins
 
 ### web-author-side-by-side-editors
