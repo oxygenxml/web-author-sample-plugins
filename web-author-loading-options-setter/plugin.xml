@@ -1,0 +1,11 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="loading-options-setter"
+  name="Loading options setter"
+  description="Plugin that sets options used when loading XML files"
+  version="1.0"
+  vendor="Syncro Soft SRL">
+</plugin>
+
