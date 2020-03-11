@@ -6,5 +6,7 @@ project folder layout in which:
  - the DITA Map is called `UserManual.ditamap`
  - all topics are located under a `topics/` folder
  
-It can be modified to work with other project folder layouts.
+It can also be used if all the users work with a single DITA Map. 
+
+To configure it, you should edit the the `web/config.js` file with the correct values.
  
