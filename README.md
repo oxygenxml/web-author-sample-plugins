@@ -18,7 +18,16 @@ Before each element that has the _id_ attribute a button it is presented. When t
 ### web-author-loading-options-setter
 
 Sample plugin that imposes some loading options depending on the file extension:
+ - Files ending in `.dita` open with the "no tags" mode.
+ - Files ending in `.ditamap` or `.bookmap` are opened with the **Show topic titles** alternate style activated. 
 
+### web-author-impose-ditamap
+
+Sample plugin that imposes a DITA Map for all files opened in Web Author. It assumes a common
+project folder layout in which:
+ - the DITA Map is called `UserManual.ditamap`
+ - all topics are located under a `topics/` folder
+ 
 ## Copyright and License
 
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
