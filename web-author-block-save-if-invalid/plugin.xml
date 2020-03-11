@@ -1,0 +1,12 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="block-save-if-invalid"
+  name="Invalid Document Save Blocker"
+  description="Plugin that blocks saving invalid documents"
+  version="1.0"
+  vendor="Syncro Soft SRL">
+    <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
+</plugin>
+

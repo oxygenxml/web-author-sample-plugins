@@ -28,6 +28,10 @@ project folder layout in which:
  - the DITA Map is called `UserManual.ditamap`
  - all topics are located under a `topics/` folder
  
+### web-author-block-safe-if-invalid
+
+Plugin that blocks saving invalid documents.
+ 
 ## Copyright and License
 
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
