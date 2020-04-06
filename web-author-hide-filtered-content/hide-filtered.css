@@ -1,0 +1,4 @@
+/* Use the class several times to increase the selector specificity. */
+.oxy-filtered.oxy-filtered.oxy-filtered.oxy-filtered.oxy-filtered {
+    display: none !important;
+}
