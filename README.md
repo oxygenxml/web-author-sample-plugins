@@ -31,6 +31,14 @@ project folder layout in which:
 ### web-author-block-safe-if-invalid
 
 Plugin that blocks saving invalid documents.
+
+### web-author-hide-filtered-content
+
+Plugin that hides the content that is filtered out by a DITAVAL filter. By default Web Author shows this content greyed out.
+
+### web-author-paste-actions
+
+Plugin that replaces the "Paste Special" action with two individual actions: "Paste as Text" (Ctrl+Alt+T) and "Paste as XML" (Ctrl+Alt+X).
  
 ## Copyright and License
 
