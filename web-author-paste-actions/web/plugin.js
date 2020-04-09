@@ -24,6 +24,7 @@
           var content = this.dialog.getElement().getElementsByTagName('textarea')[0].value;
           editor.getActionsManager().invokeOperation('com.oxygenxml.PasteAsOperation', {content: content, type: this.displayName_.toLowerCase()});
           this.dialog.dispose();
+          callback();
         });
       }
     }
