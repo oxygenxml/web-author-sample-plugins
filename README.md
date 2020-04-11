@@ -39,6 +39,11 @@ Plugin that hides the content that is filtered out by a DITAVAL filter. By defau
 ### web-author-paste-actions
 
 Plugin that replaces the "Paste Special" action with two individual actions: "Paste as Text" (Ctrl+Alt+T) and "Paste as XML" (Ctrl+Alt+X).
+
+### web-author-comment-only
+
+Plugin that switches Web Author to a comments-only mode.
+
  
 ## Copyright and License
 
