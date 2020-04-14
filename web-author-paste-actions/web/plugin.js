@@ -17,15 +17,26 @@
         this.dialog.setTitle('Paste as ' + this.displayName_);
         this.dialog.setButtonConfiguration(sync.api.Dialog.ButtonConfiguration.OK);
 
-        this.dialog.getElement().innerHTML = '<div>Paste here:<textarea style="display:block;width:500px;height:300px;">';
-        this.dialog.show();
+        let dialogElement = this.dialog.getElement();
+        dialogElement.innerHTML = '<div>Paste here:<textarea style="display:block;width:500px;height:300px;">';
+        let textArea = dialogElement.getElementsByTagName('textarea')[0];
 
-        this.dialog.onSelect(() => {
-          var content = this.dialog.getElement().getElementsByTagName('textarea')[0].value;
-          editor.getActionsManager().invokeOperation('com.oxygenxml.PasteAsOperation', {content: content, type: this.displayName_.toLowerCase()});
+        let submitDialog = () => {
+          editor.getActionsManager().invokeOperation('com.oxygenxml.PasteAsOperation', {
+            content: textArea.value,
+            type: this.displayName_.toLowerCase()});
           this.dialog.dispose();
-          callback();
+        };
+        this.dialog.onSelect(submitDialog);
+        dialogElement.addEventListener('keydown', e => {
+          if (e.code === 'Enter' && e.ctrlKey) {
+            submitDialog()
+          }
         });
+        callback();
+
+        this.dialog.show();
+        textArea.focus();
       }
     }
 
