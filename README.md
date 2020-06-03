@@ -19,7 +19,13 @@ Before each element that has the _id_ attribute a button it is presented. When t
 
 Sample plugin that imposes some loading options depending on the file extension:
  - Files ending in `.dita` open with the "no tags" mode.
- - Files ending in `.ditamap` or `.bookmap` are opened with the **Show topic titles** alternate style activated. 
+ - Files ending in `.ditamap` or `.bookmap` are opened with the **Show topic titles** alternate style activated.
+
+### web-author-impose-options
+
+Oxygen XML Web Author stores its options in an options.xml file, located in the options folder of the Oxygen Data Directory.
+This is a sample plugin for imposing specific options. The "tagless.editor.tags.display.mode" option value is set to 1,
+meaning that all the documents are opened with "no tags" mode activated.
 
 ### web-author-impose-ditamap
 
