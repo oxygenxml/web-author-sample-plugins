@@ -15,4 +15,4 @@ editor.getActionsManager().invokeOperation(
 );
 ```
 
-Additional scripts can be added to the scripts folder.
+Additional scripts can be added to the `scripts` folder.
