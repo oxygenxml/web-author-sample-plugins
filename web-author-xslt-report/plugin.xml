@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin id="web-author-xslt-report"
+    name="Web Author XSLT Report"
+    description="Run XSLT script over the current document and receive the result client-side"
+    version="1.0"
+    vendor="Syncro Soft SRL"
+    class="com.oxygenxml.XSLTReportPlugin">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <librariesFolder name="target/lib" />
+    <library name="target/classes" />
+  </runtime>
+
+
+</plugin>

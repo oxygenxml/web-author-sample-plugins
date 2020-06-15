@@ -50,7 +50,10 @@ Plugin that replaces the "Paste Special" action with two individual actions: "Pa
 
 Plugin that switches Web Author to a comments-only mode.
 
- 
+### web-author-xslt-report
+
+Sample plugin to run an XSLT script over the current document and return the result to the client as string.
+
 ## Copyright and License
 
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
