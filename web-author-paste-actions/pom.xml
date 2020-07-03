@@ -14,7 +14,6 @@
   </properties>
 
   <repositories>
-    <!-- Download artifacts from the oXygem XML Maven Repository-->
     <repository>
       <id>oxygenxml</id>
       <name>oXygen XML SDK Maven Repository</name>
