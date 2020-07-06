@@ -3,17 +3,11 @@
 <!DOCTYPE plugin SYSTEM "../plugin.dtd">
 
 <plugin
-    class="com.oxygenxml.docpreview.SamplePluginExtension"
+    class="ro.sync.exml.plugin.Plugin"
 
     id="web-author-document-preview-dialog-plugin"
     name="Web Author Document Preview Dialog"
     description="Choose a file and preview it inside a dialog."
     version="1.0"
     vendor="Syncro Soft SRL">
-
-  <runtime>
-    <library name="target/classes" />
-    <librariesFolder name="target/lib" />
-    <librariesFolder name="lib" />
-  </runtime>
 </plugin>
