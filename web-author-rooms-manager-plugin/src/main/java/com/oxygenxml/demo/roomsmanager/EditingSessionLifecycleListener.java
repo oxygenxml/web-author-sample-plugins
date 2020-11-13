@@ -8,6 +8,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import ro.sync.basic.util.URLUtil;
 import ro.sync.ecss.extensions.api.webapp.AuthorDocumentModel;
 import ro.sync.ecss.extensions.api.webapp.access.EditingSessionOpenVetoException;
@@ -20,6 +23,12 @@ import ro.sync.ecss.extensions.api.webapp.ce.RoomsManager;
  * If two users open the same document, they will be in the same concurrent session.
  */
 class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListener{
+
+  /**
+   * Logger for logging.
+   */
+  private static final Logger logger = 
+      LogManager.getLogger(EditingSessionLifecycleListener.class.getName());
 
   /**
    * Store room IDs.
@@ -47,6 +56,7 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
 
     Optional<String> roomId = roomIdsStore.getRoomId(systemId);
     if (roomId.isPresent()) {
+      logger.warn("Open {} in already existing room {}", systemId.getPath(), roomId.get());
       options.put(Room.ROOM_ID_ATTRIBUTE, roomId.get());
     }
   }
@@ -61,6 +71,7 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
       getPeersCounter(roomId.get()).incrementAndGet();
     } else {
       String newRoomId = RoomsManager.INSTANCE.createRoomFromDocument(documentModel);
+      logger.warn("Create room {} from first opened document {}", newRoomId, systemId.getPath());
       roomIdsStore.setRoomId(systemId, newRoomId);
 
       getPeersCounter(newRoomId).incrementAndGet();
@@ -75,6 +86,7 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
       String sessionId, String licenseeId, URL systemId, Map<String, Object> options) {
     super.editingSessionFailedToStart(sessionId, licenseeId, systemId, options);
 
+    logger.warn("Failed to open document {}", systemId.getPath());
     Lock lock = getLock(systemId);
     lock.unlock();
   }
@@ -93,9 +105,14 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
       // Close the room when it become empty.
       AtomicInteger peersCounter = getPeersCounter(roomId);
       if(peersCounter.decrementAndGet() == 0) {
+        logger.warn("Close empty room {}", roomId);
         Room room = RoomsManager.INSTANCE.getRoom(roomId)
             .orElseThrow(IllegalStateException::new);
         room.close();
+
+        roomIdsStore.setRoomId(systemId, null);
+        mapSystemIdToLock.remove(systemId);
+        mapRoomIdToPeersCounter.remove(roomId);
       }
     } finally {
       lock.unlock();
