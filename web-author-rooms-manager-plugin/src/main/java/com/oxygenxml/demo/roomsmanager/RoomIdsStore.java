@@ -9,6 +9,7 @@ import ro.sync.basic.util.URLUtil;
 
 /**
  * Store for room IDs.
+ * Each opened document corresponds to a unique room ID.
  */
 class RoomIdsStore {
   /**

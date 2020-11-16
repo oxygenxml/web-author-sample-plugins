@@ -6,9 +6,9 @@ import ro.sync.exml.workspace.api.PluginWorkspaceProvider;
 import ro.sync.exml.workspace.api.standalone.StandalonePluginWorkspace;
 
 /**
- * Add the 
+ * Installs the DocumentRoomAllocator.
  */
-public class WorkspaceAccessExtension implements WorkspaceAccessPluginExtension {
+public class DocumentRoomAllocatorInstaller implements WorkspaceAccessPluginExtension {
 
   @Override
   public void applicationStarted(StandalonePluginWorkspace pluginWorkspaceAccess) {
@@ -16,7 +16,7 @@ public class WorkspaceAccessExtension implements WorkspaceAccessPluginExtension 
         (WebappPluginWorkspace)PluginWorkspaceProvider.getPluginWorkspace();
 
     pluginWorkspace.addEditingSessionLifecycleListener(
-        new EditingSessionLifecycleListener());
+        new DocumentRoomAllocator());
   }
 
   @Override

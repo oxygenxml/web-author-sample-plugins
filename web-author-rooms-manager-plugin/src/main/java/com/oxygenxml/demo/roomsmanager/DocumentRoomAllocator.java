@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -19,16 +20,18 @@ import ro.sync.ecss.extensions.api.webapp.ce.Room;
 import ro.sync.ecss.extensions.api.webapp.ce.RoomsManager;
 
 /**
- * Session lifecycle listener that assign each document to a room.
- * If two users open the same document, they will be in the same concurrent session.
+ * Assign each document to a room.
+ * If two users open the same document,
+ * they will be assigned to the same room,
+ * being able to concurrently edit the document.
  */
-class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListener{
+class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
 
   /**
    * Logger for logging.
    */
   private static final Logger logger = 
-      LogManager.getLogger(EditingSessionLifecycleListener.class.getName());
+      LogManager.getLogger(DocumentRoomAllocator.class.getName());
 
   /**
    * Store room IDs.
@@ -38,7 +41,7 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
   /**
    * Map from document URL to its lock.
    */
-  private Map<URL, Lock> mapSystemIdToLock = new HashMap<>();
+  private Map<URL, Lock> mapSystemIdToLock = new ConcurrentHashMap<>();
 
   /**
    * Map from room ID its peers counter.
@@ -49,8 +52,6 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
   public void editingSessionAboutToBeStarted(
       String sessionId, String licenseeId, URL systemId, Map<String, Object> options)
           throws EditingSessionOpenVetoException {
-    super.editingSessionAboutToBeStarted(sessionId, licenseeId, systemId, options);
-
     Lock lock = getLock(systemId);
     lock.lock();
 
@@ -63,8 +64,6 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
 
   @Override
   public void editingSessionStarted(String sessionId, AuthorDocumentModel documentModel) {
-    super.editingSessionStarted(sessionId, documentModel);
-
     URL systemId = getDocUrl(documentModel);
     Optional<String> roomId = roomIdsStore.getRoomId(systemId);
     if (roomId.isPresent()) {
@@ -84,8 +83,6 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
   @Override
   public void editingSessionFailedToStart(
       String sessionId, String licenseeId, URL systemId, Map<String, Object> options) {
-    super.editingSessionFailedToStart(sessionId, licenseeId, systemId, options);
-
     logger.warn("Failed to open document {}", systemId.getPath());
     Lock lock = getLock(systemId);
     lock.unlock();
@@ -93,8 +90,6 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
 
   @Override
   public void editingSessionClosed(String sessionId, AuthorDocumentModel documentModel) {
-    super.editingSessionClosed(sessionId, documentModel);
-
     Lock lock = getLock(getDocUrl(documentModel));
     lock.lock();
     try {
@@ -102,7 +97,7 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
       String roomId = roomIdsStore.getRoomId(systemId)
           .orElseThrow(IllegalStateException::new);
 
-      // Close the room when it become empty.
+      // Close the room when it becomes empty.
       AtomicInteger peersCounter = getPeersCounter(roomId);
       if(peersCounter.decrementAndGet() == 0) {
         logger.warn("Close empty room {}", roomId);
@@ -139,7 +134,7 @@ class EditingSessionLifecycleListener extends WebappEditingSessionLifecycleListe
 
   /**
    * @param roomId The room Id.
-   * @return the peers counter.
+   * @return the peers within the given room.
    */
   private AtomicInteger getPeersCounter(String roomId) {
     mapRoomIdToPeersCounter.computeIfAbsent(roomId, (d) -> new AtomicInteger());
