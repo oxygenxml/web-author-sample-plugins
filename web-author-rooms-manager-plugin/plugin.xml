@@ -8,7 +8,7 @@
     name="web-author-rooms-manager-plugin"
     description="Automatically open each document in a concurrent session. If two users open same document, they will be in the same room."
     version="${project.nosnapshot.version}"
-    vendor="com.oxygenxml">
+    vendor="Syncro Soft">
 
   <runtime>
     <librariesFolder name="lib" />
