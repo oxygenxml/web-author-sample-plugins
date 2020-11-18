@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import ro.sync.basic.util.URLUtil;
+import ro.sync.ecss.extensions.api.access.EditingSessionContext;
 import ro.sync.ecss.extensions.api.webapp.AuthorDocumentModel;
 import ro.sync.ecss.extensions.api.webapp.access.EditingSessionOpenVetoException;
 import ro.sync.ecss.extensions.api.webapp.access.WebappEditingSessionLifecycleListener;
@@ -72,6 +73,9 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
       String newRoomId = RoomsManager.INSTANCE.createRoomFromDocument(documentModel);
       logger.warn("Create room {} from first opened document {}", newRoomId, systemId.getPath());
       roomIdsStore.setRoomId(systemId, newRoomId);
+
+      EditingSessionContext editingContext = documentModel.getAuthorAccess().getEditorAccess().getEditingContext();
+      editingContext.setAttribute(Room.ROOM_CREATOR_ATTRIBUTE, true);
 
       getPeersCounter(newRoomId).incrementAndGet();
     }
