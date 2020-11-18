@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin class="ro.sync.exml.plugin.Plugin"
+
+    id="web-author-rooms-saver-sample-plugin"
+    name="web-author-rooms-saver-sample-plugin"
+    description="A plugin for oXygen XML Web Author."
+    version="${project.nosnapshot.version}"
+    vendor="Syncro Soft">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <extension type="WorkspaceAccess" class="com.oxygenxml.demo.roomssaver.DocumentRoomAutosaverInstaller"/>
+</plugin>
