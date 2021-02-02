@@ -1,0 +1,15 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="custom-ui-style-plugin"
+  name="Load CSS to affect the user interface"
+  description="Loads a custom CSS to affect the user interface."
+  version="1.0"
+  vendor="Syncro Soft SRL">
+
+    <!-- Web Author will serve the content of the `web/static/` folder
+              at `WEB_AUTHOR_URL/plugin-resources/custom-ui-style-plugin/` -->
+    <extension type="WebappStaticResourcesFolder" path="web/static" href="custom-ui-style-plugin"/>
+</plugin>
+
