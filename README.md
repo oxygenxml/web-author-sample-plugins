@@ -15,6 +15,9 @@ Each folder contains one plugin. To install such a plugin you should:
 Is a plugin that presents two side by side Web Author editors in preview mode.
 Before each element that has the _id_ attribute a button it is presented. When the button is clicked the other editor scrolls to the element having the same value for the _id_ attribute.
 
+### web-author-change-ui-with-css
+Plugin that loads a custom CSS to affect the user interface.
+
 ### web-author-loading-options-setter
 
 Sample plugin that imposes some loading options depending on the file extension:
