@@ -3,7 +3,7 @@
 <plugin
  id="com.oxygenxml.webauthor.hide-app-bar"
  name="Hide App Bar"
- description="Hode the app-bar of the editor."
+ description="Hide the app-bar of the editor."
  version="1.0"
  vendor="Syncro Soft"
  class="ro.sync.exml.plugin.Plugin">
