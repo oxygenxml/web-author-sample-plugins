@@ -1,0 +1,1 @@
+workspace.getViewManager().hideAppBar();
