@@ -1,0 +1,12 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="comment-eol-fiup"
+  name="Comment Line Separator Fixup"
+  description="Converts line endings in review comments to Linux-style"
+  version="1.0"
+  vendor="Syncro Soft SRL">
+    <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
+</plugin>
+
