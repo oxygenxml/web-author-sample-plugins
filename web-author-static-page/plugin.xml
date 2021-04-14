@@ -1,0 +1,13 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="static-page-plugin"
+  name="Static page plugin"
+  description="Plugin that hosts a static HTML page served from the Web Author server."
+  version="1.0"
+  vendor="Syncro Soft SRL">
+    <extension type="WebappStaticResourcesFolder" path="web-root" 
+           href="web-root"/>
+</plugin>
+
