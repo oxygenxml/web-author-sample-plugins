@@ -53,6 +53,10 @@ Plugin that replaces the "Paste Special" action with two individual actions: "Pa
 
 Plugin that switches Web Author to a comments-only mode.
 
+### web-author-filter-styles
+
+Plugin that adds a Styles Filter that can be used to replace the CSS styles associated to an element or a pseudo element.
+
 ### web-author-xslt-report
 
 Sample plugin to run an XSLT script over the current document and return the result to the client as string.
