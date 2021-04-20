@@ -57,6 +57,10 @@ Plugin that switches Web Author to a comments-only mode.
 
 Plugin that adds a Styles Filter that can be used to replace the CSS styles associated to an element or a pseudo element.
 
+### web-author-insert-all-elements
+
+Sample plugin that allows inserting elements that are not valid at caret position, by using the "Insert Element..." action from the contextual menu.
+
 ### web-author-xslt-report
 
 Sample plugin to run an XSLT script over the current document and return the result to the client as string.
