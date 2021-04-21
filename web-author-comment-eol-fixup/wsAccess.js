@@ -2,8 +2,8 @@ function applicationStarted(pluginWorkspaceAccess) {
   var fixNewLines = new JavaAdapter(Packages.ro.sync.ecss.extensions.api.AuthorDocumentFilter, {
     addCommentMarker: function(filterBypass, startOffset, endOffset, comment, parentID) {
       var fixedComment = new Packages.java.lang.String(comment)
-        .replaceAll("\r?\n", "\r\n")
-        .replaceAll("\r\n?", "\r\n");
+        .replaceAll(new RegExp("\r?\n", "g"), "\r\n")
+        .replaceAll(new RegExp("\r\n?", "g"), "\r\n");
       filterBypass.addCommentMarker(startOffset, endOffset, fixedComment, parentID);
     }
   });
