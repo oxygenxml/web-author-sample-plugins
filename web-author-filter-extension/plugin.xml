@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="com.oxygenxml.SamplePluginExtension"
+
+    id="web-author-filter-extension-sample"
+    name="web-author-filter-extension-sample"
+    description="A plugin for oXygen XML Web Author."
+    version="${project.nosnapshot.version}"
+    vendor="com.oxygenxml">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <!-- Add extensions here-->
+  <extension type="WebappServletFilter" class="com.oxygenxml.ServletFilterExtension"/>
+</plugin>
