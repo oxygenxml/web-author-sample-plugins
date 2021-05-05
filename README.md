@@ -41,6 +41,12 @@ project folder layout in which:
 
 Plugin that blocks saving invalid documents.
 
+### web-author-hide-app-bar
+
+Plugins that hides the Web Author app bar, usefull when integrating the Web Author in an iframe.
+This plugin only contributes a single client-side javascript file.
+
+
 ### web-author-hide-filtered-content
 
 Plugin that hides the content that is filtered out by a DITAVAL filter. By default Web Author shows this content greyed out.
