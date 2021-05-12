@@ -71,6 +71,10 @@ Sample plugin that allows inserting elements that are not valid at caret positio
 
 Sample plugin to run an XSLT script over the current document and return the result to the client as string.
 
+### user-name-insert-operation-plugin
+
+This plugin contributes an equivalent of InsertFragmentOperation, but which support an ${user.name} editor variable that expands to the name of the current user.
+
 ## Copyright and License
 
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
