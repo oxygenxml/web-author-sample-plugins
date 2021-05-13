@@ -75,6 +75,10 @@ Sample plugin to run an XSLT script over the current document and return the res
 
 This plugin contributes an equivalent of InsertFragmentOperation, but which support an ${user.name} editor variable that expands to the name of the current user.
 
+### web-author-view-final-track-changes
+Oxygen XML Web Author plugin that defaults the track changes view mode to final.
+
+
 ## Copyright and License
 
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
