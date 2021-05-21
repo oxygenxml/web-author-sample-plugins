@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin PUBLIC "-//Oxygen Plugin" "../plugin.dtd">
+<plugin
+ id="com.oxygenxml.webauthor.file-open"
+ name="File Open"
+ description="Add an 'Open...' action to the 'More...' (triple dots) menu."
+ version="1.0"
+ vendor="Syncro Soft"
+ class="ro.sync.exml.plugin.Plugin">
+</plugin>
