@@ -10,7 +10,7 @@ workspace.listen(sync.api.Workspace.EventType.BEFORE_EDITOR_LOADED, function(e) 
       var context = new sync.api.UrlChooser.Context(sync.api.UrlChooser.Type.GENERIC);
       var target = sync.api.Editor.LinkOpenedEvent.Target.BLANK;
       workspace.getUrlChooser().chooseUrl(context, url => {
-        editor.openLink(new sync.api.Editor.LinkOpenedEvent(url, false, null, target);
+        editor.openLink(new sync.api.Editor.LinkOpenedEvent(url, false, null, target));
       }, sync.api.UrlChooser.Purpose.CHOOSE);
       callback();
     }
