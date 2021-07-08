@@ -3,6 +3,7 @@ Web Author Rooms Manager
 
 Sample plugin that manages rooms*:
 - assign each opened document to an already existing room or create a new one
+- rooms are created with a custom save strategy to save changes made by peers on behalf of the committer (the one requests to save). See GroupChangesSaveStrategy
 - if two users open the same document, they will concurrently edit the document
 - close rooms that become empty 
 

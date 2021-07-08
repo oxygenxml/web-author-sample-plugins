@@ -16,7 +16,6 @@
   </properties>
 
   <repositories>
-    <!-- Download artifacts from the oXygem XML Maven Repository-->
     <repository>
       <id>oxygenxml</id>
       <name>oXygen XML SDK Maven Repository</name>
@@ -36,14 +35,13 @@
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
-      <!-- remove the -SNAPSHOT from packaged plugin -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.10</version>
         <executions>
           <execution>
-            <id>set-version-no-snapshot</id>
+            <id>set-nosnapshot-version-property</id>
             <goals>
               <goal>regex-property</goal>
             </goals>
