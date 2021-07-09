@@ -9,8 +9,8 @@ import ro.sync.ecss.extensions.api.webapp.ce.GroupChangesForMultiplePeersStrateg
 import ro.sync.ecss.extensions.api.webapp.ce.PeerContext;
 
 /**
- * Basic implementation of GroupChangesForMultiplePeersStrategy that
- * saves the changes made by peers on behalf of committer (the one requests to save).
+ * Basic implementation of GroupChangesForMultiplePeersStrategy 
+ * that saves the changes made by all the peers from the room without recording authorship information.
  */
 class GroupChangesSaveStrategy implements GroupChangesForMultiplePeersStrategy {
   @Override
