@@ -6,17 +6,16 @@
 
   <groupId>com.oxygenxml</groupId>
   <artifactId>web-author-rooms-manager-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>23.1-SNAPSHOT</version>
 
   <properties>
-    <oxygen.sdk.version>23.0.0.0</oxygen.sdk.version>
+    <oxygen.sdk.version>23.1.0.0</oxygen.sdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
 
   <repositories>
-    <!-- Download artifacts from the oXygem XML Maven Repository-->
     <repository>
       <id>oxygenxml</id>
       <name>oXygen XML SDK Maven Repository</name>
@@ -26,24 +25,40 @@
 
   <dependencies>
     <dependency>
+      <!--
+        Adds in classpath transitive dependencies of oxygen-sdk:23.1 
+        (oxygen-basic-utilities, log4j2, etc.) 
+        -->
       <groupId>com.oxygenxml</groupId>
       <artifactId>oxygen-sdk</artifactId>
       <version>${oxygen.sdk.version}</version>
       <scope>provided</scope>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <!-- 
+        Adds in classpath oxygen-sdk:23.1.1 from local disk.
+        The jar can be found within Oxygen XML Web Author 23.1.1 WAR. 
+        Note that the JAR file must be manually unpacked in the location configured below at "systemPath".
+        -->
+      <groupId>com.oxygenxml</groupId>
+      <artifactId>oxygen-sdk-early-access</artifactId>
+      <version>23.1.1</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/oxygen-xml-web-author-23.1.1/WEB-INF/lib/oxygen.jar</systemPath>
     </dependency>
   </dependencies>
 
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
-      <!-- remove the -SNAPSHOT from packaged plugin -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.10</version>
         <executions>
           <execution>
-            <id>set-version-no-snapshot</id>
+            <id>set-nosnapshot-version-property</id>
             <goals>
               <goal>regex-property</goal>
             </goals>

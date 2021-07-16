@@ -22,8 +22,7 @@ import ro.sync.ecss.extensions.api.webapp.ce.RoomsManager;
 
 /**
  * Assign each document to a room.
- * If two users open the same document,
- * they will be assigned to the same room,
+ * If two users open the same document, they will be assigned to the same room,
  * being able to concurrently edit the document.
  */
 class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
@@ -31,8 +30,7 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
   /**
    * Logger for logging.
    */
-  private static final Logger logger = 
-      LogManager.getLogger(DocumentRoomAllocator.class.getName());
+  private static final Logger logger = LogManager.getLogger(DocumentRoomAllocator.class);
 
   /**
    * Store room IDs.
@@ -70,18 +68,30 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
     if (roomId.isPresent()) {
       getPeersCounter(roomId.get()).incrementAndGet();
     } else {
-      String newRoomId = RoomsManager.INSTANCE.createRoomFromDocument(documentModel);
+      String newRoomId = createAndRecordRoom(documentModel, systemId);
       logger.warn("Create room {} from first opened document {}", newRoomId, systemId.getPath());
-      roomIdsStore.setRoomId(systemId, newRoomId);
-
-      EditingSessionContext editingContext = documentModel.getAuthorAccess().getEditorAccess().getEditingContext();
-      editingContext.setAttribute(Room.ROOM_CREATOR_ATTRIBUTE, true);
-
       getPeersCounter(newRoomId).incrementAndGet();
     }
 
     Lock lock = getLock(systemId);
     lock.unlock();
+  }
+
+  private String createAndRecordRoom(AuthorDocumentModel documentModel, URL systemId) {
+    GroupChangesSaveStrategy saveStrategy = new GroupChangesSaveStrategy();
+    String newRoomId = RoomsManager.INSTANCE.createRoomFromDocument(documentModel, saveStrategy);
+
+    // Observer must be initialized right away,
+    // otherwise if initialized by the first save it won't see previous changes.
+    Room room = RoomsManager.INSTANCE.getRoom(newRoomId)
+        .orElseThrow(IllegalStateException::new);
+    room.getObserver();
+
+    roomIdsStore.setRoomId(systemId, newRoomId);
+    EditingSessionContext editingContext = documentModel.getAuthorAccess().getEditorAccess().getEditingContext();
+    editingContext.setAttribute(Room.ROOM_CREATOR_ATTRIBUTE, true);
+
+    return newRoomId;
   }
 
   @Override
@@ -132,7 +142,7 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
    */
   private Lock getLock(URL docUrl) {
     docUrl = URLUtil.clearUserInfo(docUrl);
-    mapSystemIdToLock.computeIfAbsent(docUrl, (d) -> new ReentrantLock());
+    mapSystemIdToLock.computeIfAbsent(docUrl, d -> new ReentrantLock());
     return mapSystemIdToLock.get(docUrl);
   }
 
@@ -141,7 +151,7 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
    * @return the peers within the given room.
    */
   private AtomicInteger getPeersCounter(String roomId) {
-    mapRoomIdToPeersCounter.computeIfAbsent(roomId, (d) -> new AtomicInteger());
+    mapRoomIdToPeersCounter.computeIfAbsent(roomId, d -> new AtomicInteger());
     return mapRoomIdToPeersCounter.get(roomId);
   }
 }
