@@ -9,3 +9,9 @@ Sample plugin that manages rooms*:
 
 *A room is an abstraction for a set of document models created for the same document.
 Such models belong to different users and are edited concurrently and synchronized in real-time.
+
+
+NOTE: This plugin uses API from oxygen-sdk 23.1.1 that isn't released yet.
+In order to compile it though, you must add oxygen.jar from Oxygen XML Web Author 23.1.1 to classpath.
+To do so, specify a "system" dependency in pom.xml that points to the oxygen.jar from local disk,
+file that must be manually unpacked from Web Author 23.1.1 WAR.
