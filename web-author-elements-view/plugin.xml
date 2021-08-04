@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="com.oxygenxml.webapp.elements.SamplePluginExtension"
+
+    id="web-author-elements-view"
+    name="Web Author Elements View"
+    description="A plugin that contributes an 'Elements' view that displays elements that can be inserted at the caret position"
+    version="1.0"
+    vendor="Syncro Soft SRL">
+
+  <runtime>
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+    <librariesFolder name="lib" />
+  </runtime>
+</plugin>
