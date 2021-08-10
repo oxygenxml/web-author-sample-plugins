@@ -25,17 +25,6 @@
 
   <dependencies>
     <dependency>
-      <!--
-        Adds in classpath transitive dependencies of oxygen-sdk:23.1 
-        (oxygen-basic-utilities, log4j2, etc.) 
-        -->
-      <groupId>com.oxygenxml</groupId>
-      <artifactId>oxygen-sdk</artifactId>
-      <version>${oxygen.sdk.version}</version>
-      <scope>provided</scope>
-      <type>pom</type>
-    </dependency>
-    <dependency>
       <!-- 
         Adds in classpath oxygen-sdk:23.1.1 from local disk.
         The jar can be found within Oxygen XML Web Author 23.1.1 WAR. 
@@ -46,6 +35,17 @@
       <version>23.1.1</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/oxygen-xml-web-author-23.1.1/WEB-INF/lib/oxygen.jar</systemPath>
+    </dependency>
+    <dependency>
+      <!--
+        Adds in classpath transitive dependencies of oxygen-sdk:23.1 
+        (oxygen-basic-utilities, log4j2, etc.) 
+        -->
+      <groupId>com.oxygenxml</groupId>
+      <artifactId>oxygen-sdk</artifactId>
+      <version>${oxygen.sdk.version}</version>
+      <scope>provided</scope>
+      <type>pom</type>
     </dependency>
   </dependencies>
 
