@@ -9,7 +9,7 @@
   <version>23.1-SNAPSHOT</version>
 
   <properties>
-    <oxygen.sdk.version>23.1.0.0</oxygen.sdk.version>
+    <oxygen.sdk.version>24.0.0.0</oxygen.sdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -25,18 +25,6 @@
 
   <dependencies>
     <dependency>
-      <!-- 
-        Adds in classpath oxygen-sdk:23.1.1 from local disk.
-        The jar can be found within Oxygen XML Web Author 23.1.1 WAR. 
-        Note that the JAR file must be manually unpacked in the location configured below at "systemPath".
-        -->
-      <groupId>com.oxygenxml</groupId>
-      <artifactId>oxygen-sdk-early-access</artifactId>
-      <version>23.1.1</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/oxygen-xml-web-author-23.1.1/WEB-INF/lib/oxygen.jar</systemPath>
-    </dependency>
-    <dependency>
       <!--
         Adds in classpath transitive dependencies of oxygen-sdk:23.1 
         (oxygen-basic-utilities, log4j2, etc.) 
@@ -45,7 +33,6 @@
       <artifactId>oxygen-sdk</artifactId>
       <version>${oxygen.sdk.version}</version>
       <scope>provided</scope>
-      <type>pom</type>
     </dependency>
   </dependencies>
 
