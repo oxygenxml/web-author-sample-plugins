@@ -1,0 +1,13 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="custom-author-stylesheet"
+  name="Custom Author Stylesheet"
+  description="Load CSS to affect the rendered XML documents"
+  version="1.0"
+  vendor="Syncro Soft SRL">
+
+    <!-- Web Author will load this CSS for all XML documents -->
+    <extension type="AuthorStylesheet" href="custom-style.css"/>
+</plugin>
