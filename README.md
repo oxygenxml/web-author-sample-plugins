@@ -59,6 +59,10 @@ Plugin that replaces the "Paste Special" action with two individual actions: "Pa
 
 Plugin that switches Web Author to a comments-only mode.
 
+### web-author-custom-author-style
+
+Plugin that enforces a custom stylesheet for all XML documents loaded in Web Author.
+
 ### web-author-filter-styles
 
 Plugin that adds a Styles Filter that can be used to replace the CSS styles associated to an element or a pseudo element.
