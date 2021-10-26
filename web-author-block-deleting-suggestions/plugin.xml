@@ -1,0 +1,12 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="block-delete-suggestion"
+  name="Block Change Tracking Deletion"
+  description="Blocks users from deleting suggestions made by other users"
+  version="1.0"
+  vendor="Syncro Soft SRL">
+    <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
+</plugin>
+
