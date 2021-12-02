@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    id="web-author-validation-problems-filter"
+    name="web-author-validation-problems-filter"
+    description="A plugin for oXygen XML Web Author."
+    version="${project.nosnapshot.version}"
+    vendor="com.oxygenxml">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <extension type="WorkspaceAccess" 
+	  class="com.oxygenxml.CustomWorkspaceAccessPluginExtension"/>
+</plugin>
