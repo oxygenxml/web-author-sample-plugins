@@ -6,7 +6,7 @@
   name="Invalid Document Save Blocker"
   description="Plugin that blocks saving invalid documents"
   version="1.0"
-  vendor="Syncro Soft SRL">
+  vendor="Syncro Soft">
     <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
 </plugin>
 
