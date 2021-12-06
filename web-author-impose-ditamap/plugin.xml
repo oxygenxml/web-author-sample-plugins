@@ -6,6 +6,6 @@
   name="DITA Map Setter"
   description="Plugin that sets the root DITA Map assuming a common project folder layout"
   version="1.0"
-  vendor="Syncro Soft SRL">
+  vendor="Syncro Soft">
 </plugin>
 
