@@ -9,7 +9,7 @@
     name="Insert operation plugin (aware of user name) "
     description="A plugin for oXygen XML Web Author."
     version="${project.nosnapshot.version}"
-    vendor="Syncro Soft SRL">
+    vendor="Syncro Soft">
 
   <runtime>
     <librariesFolder name="lib" />
