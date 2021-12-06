@@ -6,7 +6,7 @@
     name="Web Author XSLT Report"
     description="Run XSLT script over the current document and receive the result client-side"
     version="1.0"
-    vendor="Syncro Soft SRL"
+    vendor="Syncro Soft"
     class="com.oxygenxml.XSLTReportPlugin">
 
   <runtime>
