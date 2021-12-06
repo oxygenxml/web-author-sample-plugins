@@ -8,7 +8,7 @@
     name="Web Author Filter Styles"
     description="Plugin that adds a Styles Filter that can be used to replace the CSS styles associated to an element or a pseudo element"
     version="1.0"
-    vendor="Syncro Soft SRL">
+    vendor="Syncro Soft">
 
   <runtime>
     <library name="target/classes" />
