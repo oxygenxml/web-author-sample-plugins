@@ -6,7 +6,7 @@
     name="web-author-side-by-side-editors"
     description="Side by side oXygen XML Web Author preview editors."
     version="${project.nosnapshot.version}"
-    vendor="com.oxygenxml">
+    vendor="Syncro Soft">
 
   <runtime>
     <librariesFolder name="lib" />
