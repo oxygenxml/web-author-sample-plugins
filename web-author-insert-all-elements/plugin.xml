@@ -6,6 +6,6 @@
   name="Loading options setter"
   description="Plugin that allows insertion of elements that are not valid at caret position"
   version="1.0"
-  vendor="Syncro Soft SRL">
+  vendor="Syncro Soft">
 </plugin>
 
