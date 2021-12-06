@@ -7,7 +7,7 @@
     name="web-author-validation-problems-filter"
     description="A plugin for oXygen XML Web Author."
     version="${project.nosnapshot.version}"
-    vendor="com.oxygenxml">
+    vendor="Syncro Soft">
 
   <runtime>
     <librariesFolder name="lib" />
