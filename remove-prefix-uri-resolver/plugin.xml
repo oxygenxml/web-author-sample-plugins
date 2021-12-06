@@ -4,7 +4,7 @@ id="com.oxygenxml.remove.prefix.uri.resolver"
 name="Remove a prefix from all absolute references"
 description="This plugin resolves absolute references after removing a prefix of them to make them relative."
 version="1.0"
-vendor="Syncro Soft SRL"
+vendor="Syncro Soft"
 class="ro.sync.exml.plugin.Plugin">
 <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
 </plugin>
