@@ -6,7 +6,7 @@
   name="Comment Line Separator Fixup"
   description="Converts line endings in review comments to Linux-style"
   version="1.0"
-  vendor="Syncro Soft SRL">
+  vendor="Syncro Soft">
     <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
 </plugin>
 
