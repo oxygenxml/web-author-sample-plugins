@@ -34,22 +34,23 @@ public class CustomWorkspaceAccessPluginExtension implements WorkspaceAccessPlug
         documentModel.getAuthorDocumentController().setDocumentFilter(new AuthorDocumentFilter() {
           @Override
           public boolean insertNode(AuthorDocumentFilterBypass filterBypass, int offset, AuthorNode node) {
+            boolean insertNode =  filterBypass.insertNode(offset, node);
             highlighter.recomputeHighlights();
-            return filterBypass.insertNode(offset, node);
+            return insertNode;
           }
           
           @Override
           public void insertFragment(AuthorDocumentFilterBypass filterBypass,
               int offset, AuthorDocumentFragment frag) {
-            highlighter.recomputeHighlights();
             filterBypass.insertFragment(offset, frag);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public void insertText(AuthorDocumentFilterBypass filterBypass,
               int offset, String toInsert) {
-            highlighter.recomputeHighlights();
             super.insertText(filterBypass, offset, toInsert);
+            highlighter.recomputeHighlights();
           }
           
           @Override
@@ -57,9 +58,9 @@ public class CustomWorkspaceAccessPluginExtension implements WorkspaceAccessPlug
               AuthorDocumentFilterBypass filterBypass,
               AuthorElement parentElement, String[] elementNames, int[] offsets,
               String namespace) {
-            highlighter.recomputeHighlights();
             super.insertMultipleElements(filterBypass, parentElement, elementNames, offsets,
                 namespace);
+            highlighter.recomputeHighlights();
           }
           
           @Override
@@ -67,53 +68,54 @@ public class CustomWorkspaceAccessPluginExtension implements WorkspaceAccessPlug
               AuthorDocumentFilterBypass filterBypass,
               AuthorElement parentElement, AuthorDocumentFragment[] fragments,
               int[] offsets) {
-            highlighter.recomputeHighlights();
             return super.insertMultipleFragments(filterBypass, parentElement, fragments,
                 offsets);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public boolean delete(AuthorDocumentFilterBypass filterBypass,
               int startOffset, int endOffset, boolean withBackspace) {
-            highlighter.recomputeHighlights();
             return super.delete(filterBypass, startOffset, endOffset, withBackspace);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public boolean deleteNode(AuthorDocumentFilterBypass filterBypass,
               AuthorNode node) {
-            highlighter.recomputeHighlights();
             return super.deleteNode(filterBypass, node);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public void renameElement(AuthorDocumentFilterBypass filterBypass,
               AuthorElement element, String newName, Object infoProvider) {
-            highlighter.recomputeHighlights();
             super.renameElement(filterBypass, element, newName, infoProvider);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public void surroundInText(AuthorDocumentFilterBypass filterBypass,
               String header, String footer, int startOffset, int endOffset)
               throws AuthorOperationException {
-            highlighter.recomputeHighlights();
             super.surroundInText(filterBypass, header, footer, startOffset, endOffset);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public void multipleDelete(AuthorDocumentFilterBypass filterBypass,
               AuthorElement parentElement, int[] startOffsets,
               int[] endOffsets) {
-            highlighter.recomputeHighlights();
             super.multipleDelete(filterBypass, parentElement, startOffsets, endOffsets);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public boolean split(AuthorDocumentFilterBypass filterBypass,
               AuthorNode toSplit, int splitOffset) {
+            boolean split = super.split(filterBypass, toSplit, splitOffset);
             highlighter.recomputeHighlights();
-            return super.split(filterBypass, toSplit, splitOffset);
+            return split;
           }
           
           @Override
@@ -129,16 +131,16 @@ public class CustomWorkspaceAccessPluginExtension implements WorkspaceAccessPlug
           public void surroundInFragment(
               AuthorDocumentFilterBypass filterBypass, String xmlFragment,
               int startOffset, int endOffset) throws AuthorOperationException {
-            highlighter.recomputeHighlights();
             super.surroundInFragment(filterBypass, xmlFragment, startOffset, endOffset);
+            highlighter.recomputeHighlights();
           }
           
           @Override
           public void surroundWithNode(AuthorDocumentFilterBypass filterBypass,
               AuthorNode node, int startOffset, int endOffset,
               boolean leftToRight) {
-            highlighter.recomputeHighlights();
             super.surroundWithNode(filterBypass, node, startOffset, endOffset, leftToRight);
+            highlighter.recomputeHighlights();
           }
         });
       }
