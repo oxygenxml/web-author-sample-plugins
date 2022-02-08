@@ -68,23 +68,26 @@ public class CustomWorkspaceAccessPluginExtension implements WorkspaceAccessPlug
               AuthorDocumentFilterBypass filterBypass,
               AuthorElement parentElement, AuthorDocumentFragment[] fragments,
               int[] offsets) {
-            return super.insertMultipleFragments(filterBypass, parentElement, fragments,
+            boolean insert = super.insertMultipleFragments(filterBypass, parentElement, fragments,
                 offsets);
             highlighter.recomputeHighlights();
+            return insert;
           }
           
           @Override
           public boolean delete(AuthorDocumentFilterBypass filterBypass,
               int startOffset, int endOffset, boolean withBackspace) {
-            return super.delete(filterBypass, startOffset, endOffset, withBackspace);
+            boolean delete = super.delete(filterBypass, startOffset, endOffset, withBackspace);
             highlighter.recomputeHighlights();
+            return delete;
           }
           
           @Override
           public boolean deleteNode(AuthorDocumentFilterBypass filterBypass,
               AuthorNode node) {
-            return super.deleteNode(filterBypass, node);
+            boolean delete = super.deleteNode(filterBypass, node);
             highlighter.recomputeHighlights();
+            return delete;
           }
           
           @Override
