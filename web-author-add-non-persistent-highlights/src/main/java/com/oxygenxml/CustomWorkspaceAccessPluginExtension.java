@@ -100,6 +100,46 @@ public class CustomWorkspaceAccessPluginExtension implements WorkspaceAccessPlug
             highlighter.recomputeHighlights();
             super.surroundInText(filterBypass, header, footer, startOffset, endOffset);
           }
+          
+          @Override
+          public void multipleDelete(AuthorDocumentFilterBypass filterBypass,
+              AuthorElement parentElement, int[] startOffsets,
+              int[] endOffsets) {
+            highlighter.recomputeHighlights();
+            super.multipleDelete(filterBypass, parentElement, startOffsets, endOffsets);
+          }
+          
+          @Override
+          public boolean split(AuthorDocumentFilterBypass filterBypass,
+              AuthorNode toSplit, int splitOffset) {
+            highlighter.recomputeHighlights();
+            return super.split(filterBypass, toSplit, splitOffset);
+          }
+          
+          @Override
+          public void surroundInFragment(
+              AuthorDocumentFilterBypass filterBypass,
+              AuthorDocumentFragment xmlFragment, int startOffset,
+              int endOffset) throws AuthorOperationException {
+            highlighter.recomputeHighlights();
+            super.surroundInFragment(filterBypass, xmlFragment, startOffset, endOffset);
+          }
+          
+          @Override
+          public void surroundInFragment(
+              AuthorDocumentFilterBypass filterBypass, String xmlFragment,
+              int startOffset, int endOffset) throws AuthorOperationException {
+            highlighter.recomputeHighlights();
+            super.surroundInFragment(filterBypass, xmlFragment, startOffset, endOffset);
+          }
+          
+          @Override
+          public void surroundWithNode(AuthorDocumentFilterBypass filterBypass,
+              AuthorNode node, int startOffset, int endOffset,
+              boolean leftToRight) {
+            highlighter.recomputeHighlights();
+            super.surroundWithNode(filterBypass, node, startOffset, endOffset, leftToRight);
+          }
         });
       }
     });
