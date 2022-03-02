@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="com.oxygenxml.SamplePluginExtension"
+
+    id="web-author-view-file-as-text"
+    name="View File as Text"
+    description="A plugin that contributes a &quot;View file as text&quot; action"
+    version="1.0"
+    vendor="Syncro Soft SRL">
+
+  <runtime>
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+    <librariesFolder name="lib" />
+  </runtime>
+</plugin>
