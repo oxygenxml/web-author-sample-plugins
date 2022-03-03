@@ -9,7 +9,7 @@
     name="View File as Text"
     description="A plugin that contributes a &quot;View file as text&quot; action"
     version="1.0"
-    vendor="Syncro Soft SRL">
+    vendor="Syncro Soft">
 
   <runtime>
     <library name="target/classes" />
