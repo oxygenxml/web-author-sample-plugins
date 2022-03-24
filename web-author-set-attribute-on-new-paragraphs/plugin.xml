@@ -1,0 +1,12 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="add-outputclass"
+  name="Add output class to paragraph fragments"
+  description="Add outputclass attribute to paragraph elements, when inserted in the document"
+  version="1.0"
+  vendor="Syncro Soft SRL">
+    <extension type="WorkspaceAccessJS" href="wsAccess.js"/>
+</plugin>
+
