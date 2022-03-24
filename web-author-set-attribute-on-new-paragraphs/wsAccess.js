@@ -8,7 +8,7 @@ function applicationStarted(pluginWorkspaceAccess) {
               var nodesCount = contentNodes.size();
               for (var i = 0; i <nodesCount; i++) {
                 var node = contentNodes.get(i);
-                if (node instanceof Packages.ro.sync.ecss.extensions.api.node.AuthorElement && "p" == node.getName()) {
+                if (node instanceof Packages.ro.sync.ecss.extensions.api.node.AuthorElement && "p".equals(node.getName())) {
                   node.setAttribute("outputclass", new Packages.ro.sync.ecss.extensions.api.node.AttrValue("normal"));
                 }
               }
