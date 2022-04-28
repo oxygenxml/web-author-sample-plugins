@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="ro.sync.exml.plugin.Plugin"
+    id="approval-with-full-map"
+    name="[BETA] Full Map Editing For Approval Tasks"
+    description="Plugin that forces &quot;Full Map&quot; editing when the task title contains [APPROVAL]."
+    version="1.0"
+    vendor="Syncro Soft">
+</plugin>
