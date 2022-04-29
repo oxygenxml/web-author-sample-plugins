@@ -1,0 +1,11 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="enable-accept-change"
+  name="Always Enable Accept Change Action"
+  description="This plugin enables the 'Accept Chage' action even when change tracking is forced."
+  version="1.0"
+  vendor="Syncro Soft">
+</plugin>
+
