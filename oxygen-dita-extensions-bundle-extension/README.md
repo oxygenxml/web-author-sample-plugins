@@ -4,7 +4,7 @@
 This projects builds an Oxygen plugin [1] that contributes a DITA (framework) extension [2] that sets a custom ExtensionsBundle implementation [3] that extends the DITA implementation.
 - [1] see [plugin.xml](plugin.xml)
 - [2] see [dita-extension.exf](dita-extension.exf)
-- [3] [CustomDitaExtensionsBundle.java](src\main\java\com\oxygenxml\demo\CustomDitaExtensionsBundle.java)
+- [3] [CustomDitaExtensionsBundle.java](src/main/java/com/oxygenxml/demo/CustomDitaExtensionsBundle.java)
 
 You can create a custom DITA extensions bundle where you can override built-in methods. 
 
