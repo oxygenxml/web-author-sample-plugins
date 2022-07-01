@@ -1,4 +1,4 @@
-# Oxygen DITA Extensions Bundle Extension
+# Oxygen DITA-Extensions-Bundle Extension
 ======================================
 
 This projects builds an Oxygen plugin [1] that contributes a DITA framework extension [2] that sets a custom ExtensionsBundle implementation [3] that extends the DITA implementation.
