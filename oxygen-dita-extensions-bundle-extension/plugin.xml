@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin class="ro.sync.exml.plugin.Plugin"
+    id="oxygen-dita-extensions-bundle-extension"
+    name="Oxygen DITA Extensions Bundle Extension"
+    description="That contributes a DITA framework extension that sets a custom ExtensionsBundle implementation that extends the DITA implementation."
+    version="${project.nosnapshot.version}"
+    vendor="Syncro Soft">
+
+  <extension type="AdditionalFrameworks" path="framework"/>
+
+</plugin>
