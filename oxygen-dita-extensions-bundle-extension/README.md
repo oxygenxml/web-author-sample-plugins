@@ -1,7 +1,7 @@
 # Oxygen DITA-Extensions-Bundle Extension
 ======================================
 
-This projects builds an Oxygen plugin [1] that contributes a DITA (framework) extension [2] that sets a custom [ExtensionsBundle](https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html) implementation [3] that extends the DITA implementation.
+This projects builds an Oxygen plugin [1] that contributes a DITA (framework) extension [2] that sets a custom [ExtensionsBundle](https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html) implementation [3] that extends the built-in implementation.
 - [1] see [plugin.xml](plugin.xml)
 - [2] see [dita-extension.exf](dita-extension.exf)
 - [3] see [CustomDitaExtensionsBundle.java](src/main/java/com/oxygenxml/demo/CustomDitaExtensionsBundle.java)
