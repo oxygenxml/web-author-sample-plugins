@@ -22,7 +22,6 @@
   <files>
     <file>
       <source>plugin.xml</source>
-      <filtered>true</filtered>
     </file>
     <file>
       <source>dita-extension.exf</source>
@@ -31,10 +30,6 @@
     <file>
       <source>target/build/${project.build.finalName}.jar</source>
       <outputDirectory>framework/lib</outputDirectory>
-    </file>
-    <file>
-      <source>plugin.xml</source>
-      <filtered>true</filtered>
     </file>
   </files>
 </assembly>
