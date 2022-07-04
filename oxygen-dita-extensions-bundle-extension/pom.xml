@@ -38,10 +38,10 @@
     </dependency>
     <dependency>
       <groupId>com.oxygenxml</groupId>
-      <artifactId>oxygen-dita</artifactId>
+      <artifactId>oxygen-jars</artifactId>
       <version>${oxygen.sdk.version}</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/ditajar-for-compilation.jar</systemPath>
+      <classifier>framework-dita</classifier>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
