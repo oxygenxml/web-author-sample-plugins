@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<script xmlns="http://www.oxygenxml.com/ns/framework/extend"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.oxygenxml.com/ns/framework/extend http://www.oxygenxml.com/ns/framework/extend/frameworkExtensionScript.xsd"
+  base="DITA">
+  <name>DITA extension with CustomSchemaManagerFilterImpl</name>
+  <description>DITA extension that extends the built-in DITAExtensionsBundle to set CustomSchemaManagerFilterImpl.</description>
+  <priority>High</priority>
+
+  <classpath inherit="all" xmlns="http://www.oxygenxml.com/ns/framework/extend">
+    <addEntry path="${framework}/lib/web-author-custom-proposed-attribute-values-plugin.jar"/>
+  </classpath>
+
+  <extensionPoints>
+    <extension name="extensionsBundle" value="com.oxygenxml.demo.CustomDitaExtensionsBundle"/>
+  </extensionPoints>
+</script>

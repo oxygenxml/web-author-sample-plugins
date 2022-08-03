@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin class="ro.sync.exml.plugin.Plugin"
+    id="web-author-custom-proposed-attribute-values-plugin"
+    name="Web Author Custom Proposed Attribute Values Sample Plugin"
+    description="Sample plugin that sets 'Oxygen XML Editor' and 'Oxygen XML Autor' as the proposed values for the 'product' attribute by implementing the SchemaManagerFilter API."
+    version="${project.nosnapshot.version}"
+    vendor="Syncro Soft">
+
+  <!-- com.oxygenxml.CustomSchemaManagerFilterImpl -->
+  <extension type="AdditionalFrameworks" path="framework"/>
+
+</plugin>
