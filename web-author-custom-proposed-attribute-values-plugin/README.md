@@ -17,3 +17,6 @@ Other ways that can customize proposed attribute values:
 - [1] https://www.oxygenxml.com/doc/versions/24.1/ug-editor/topics/configuring-content-completion-proposals.html
 - [2] https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/subject-scheme-maps-and-usage.html
 - [3] https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/binding-controlled-values-to-attribute.html#concept_fpj_jlx_54__example-binding-values
+
+---
+See also the [equivalent sample framework](https://github.com/oxygenxml-incubator/oxygen-sample-frameworks/tree/main/dita-extension-custom-proposed-attribute-values).
