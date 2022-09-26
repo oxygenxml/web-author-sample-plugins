@@ -1,7 +1,7 @@
-let enabled = 'false' !== new URLSearchParams(window.location.search).get('comment-only');
+let commentsOnlyEnabled = 'true' === new URLSearchParams(window.location.search).get('commentsOnly');
 
 goog.events.listen(workspace, sync.api.Workspace.EventType.BEFORE_EDITOR_LOADED, function(e) {
-  if (enabled) {
+  if (commentsOnlyEnabled) {
     disableEditingControls(e);
   }
 });

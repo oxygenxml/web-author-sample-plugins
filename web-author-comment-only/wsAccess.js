@@ -24,7 +24,11 @@ function applicationStarted(pluginWorkspaceAccess) {
   pluginWorkspaceAccess.addEditingSessionLifecycleListener(
       new JavaAdapter(Packages.ro.sync.ecss.extensions.api.webapp.access.WebappEditingSessionLifecycleListener, {
         editingSessionStarted: function (docId, authorDocumentModel) {
-          authorDocumentModel.getAuthorAccess().getDocumentController().setDocumentFilter(blockAllEditsFilter);
+          var authorAccess = authorDocumentModel.getAuthorAccess();
+          var commentsOnly = authorAccess.getEditorAccess().getEditingContext().getAttribute("commentsOnly");
+          if (commentsOnly === 'true') {
+            authorAccess.getDocumentController().setDocumentFilter(blockAllEditsFilter);
+          }
         }
       }));
 }
