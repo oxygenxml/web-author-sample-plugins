@@ -1,4 +1,4 @@
 Add output class to paragraph fragments
 ===============================
 
-Plugin that adds the outputclass attribute to paragraph elements, when inserted in the document. 
+Plugin that adds "normal" outputclass attribute to paragraph elements that have no outputclass set, when inserted in the document. 
