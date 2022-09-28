@@ -4,14 +4,7 @@ function applicationStarted(pluginWorkspaceAccess) {
         editingSessionStarted: function (docId, authorDocumentModel) {
           var adapter = new JavaAdapter(Packages.ro.sync.ecss.extensions.api.AuthorDocumentFilter, {
             insertFragment: function(bypass, offset, frag) {
-              var contentNodes = frag.getContentNodes();
-              var nodesCount = contentNodes.size();
-              for (var i = 0; i <nodesCount; i++) {
-                var node = contentNodes.get(i);
-                if (node instanceof Packages.ro.sync.ecss.extensions.api.node.AuthorElement && "p".equals(node.getName())) {
-                  node.setAttribute("outputclass", new Packages.ro.sync.ecss.extensions.api.node.AttrValue("normal"));
-                }
-              }
+              frag.getContentNodes().forEach(node => setNormalOutputClassOnAllParas(node));
               return bypass.insertFragment(offset, frag);
             }
           });
@@ -22,4 +15,17 @@ function applicationStarted(pluginWorkspaceAccess) {
 
 function applicationClosing(pluginWorkspaceAccess) {
   // Nothing to do.
+}
+
+function setNormalOutputClassOnAllParas(parentNode) {
+  if (parentNode instanceof Packages.ro.sync.ecss.extensions.api.node.AuthorElement) {
+    setNormalOutputClassIfPara(parentNode);
+    parentNode.getContentNodes().forEach(node => setNormalOutputClassOnAllParas(node));
+  }
+}
+
+function setNormalOutputClassIfPara(element) {
+  if ("p".equals(element.getName())) {
+    element.setAttribute("outputclass", new Packages.ro.sync.ecss.extensions.api.node.AttrValue("normal"));
+  }
 }
