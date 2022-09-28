@@ -25,7 +25,7 @@ function setNormalOutputClassOnAllParas(parentNode) {
 }
 
 function setNormalOutputClassIfPara(element) {
-  if ("p".equals(element.getName())) {
+  if ("p".equals(element.getName()) && !element.getAttribute("outputclass")) {
     element.setAttribute("outputclass", new Packages.ro.sync.ecss.extensions.api.node.AttrValue("normal"));
   }
 }
