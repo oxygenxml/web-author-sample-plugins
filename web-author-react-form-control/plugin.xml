@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="com.oxygenxml.web_author.react.Plugin"
+
+    id="web-author-stepper-plugin"
+    name="Web Author Stepper Plugin"
+    description="A plugin that contributes a Stepper form control implemented in React"
+    version="1.0"
+    vendor="Syncro Soft">
+
+  <runtime>
+    <library name="target/classes" />
+  </runtime>
+</plugin>
