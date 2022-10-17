@@ -1,4 +1,4 @@
-import {createRoot} from "react-dom/client.js";
+import {createRoot} from "react-dom/client";
 import {ThemeProvider} from "@mui/material/styles";
 import theme from "./theme.js";
 import CssBaseline from "@mui/material/CssBaseline";
