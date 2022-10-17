@@ -12,6 +12,7 @@
     vendor="Syncro Soft">
 
   <runtime>
+    <library name="lib" />
     <library name="target/classes" />
   </runtime>
 </plugin>

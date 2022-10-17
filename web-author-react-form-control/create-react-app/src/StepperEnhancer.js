@@ -5,18 +5,22 @@ import CssBaseline from "@mui/material/CssBaseline";
 import App from "./App.js";
 import * as React from "react";
 
-export default class StepperEnhancer extends sync.formctrls.Enhancer {
-
-  enterDocument() {
-    this.root = createRoot(this.formControl);
-    this.root.render(
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>,
-    );
-  }
-  exitDocument() {
-    this.root.unmount();
-  }
+function StepperEnhancer(element, editingSupport) {
+  sync.formctrls.Enhancer.call(this, element, editingSupport);
 }
+goog.inherits(StepperEnhancer, sync.formctrls.Enhancer);
+
+StepperEnhancer.prototype.enterDocument = function() {
+  this.root = createRoot(this.formControl);
+  this.root.render(
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <App />
+      </ThemeProvider>,
+  );
+}
+StepperEnhancer.prototype.exitDocument = function() {
+  this.root.unmount();
+}
+
+export default StepperEnhancer;
