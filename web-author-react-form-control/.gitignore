@@ -1,2 +1,4 @@
-web/bundle.js
-web/bundle.js.map
+web/plugin.js
+web/plugin.js.map
+
+node_modules/
