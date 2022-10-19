@@ -9,13 +9,21 @@ To work on the React code and have results available in the browser after a refr
 npm run watch
 ```
 
-To add the form control in a topic, you can add the following rule
-to the framework CSS:
+To add the form control in a topic, you can add the following structure:
 
-```css
-[outputclass="stepper"] {
-  content: oxy_editor(
-    webappRendererClassName, "com.oxygenxml.web_author.react.StepperRenderer"
-    edit, "custom");
-}
+```xml
+<dl outputclass="stepper">
+    <dlentry>
+        <dt>Step 1</dt>
+        <dd>Instructions 1</dd>
+    </dlentry>
+    <dlentry>
+        <dt>Step 2</dt>
+        <dd>Instructions 2</dd>
+    </dlentry>
+    <dlentry>
+        <dt>Step 3</dt>
+        <dd>Instructions 3</dd>
+    </dlentry>
+</dl>
 ```

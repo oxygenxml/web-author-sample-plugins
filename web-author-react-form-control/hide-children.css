@@ -1,3 +1,9 @@
+[outputclass="stepper"] {
+    content: oxy_editor(
+            webappRendererClassName, "com.oxygenxml.web_author.react.StepperRenderer"
+            edit, "custom");
+}
+
 :show-child-1 > *:not(:nth-child(1)) {
     display: none !important;
 }
