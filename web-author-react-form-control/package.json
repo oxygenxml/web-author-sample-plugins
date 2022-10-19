@@ -3,7 +3,8 @@
   "version": "5.0.0",
   "private": true,
   "scripts": {
-    "compile": "esbuild --bundle js/plugin.js --outdir=web/ --sourcemap --minify --loader:.js=jsx"
+    "compile": "esbuild --bundle js/plugin.js --outdir=web/ --sourcemap --minify --loader:.js=jsx",
+    "watch": "esbuild --bundle js/plugin.js --outdir=web/ --loader:.js=jsx --watch"
   },
   "dependencies": {
     "@emotion/react": "latest",
