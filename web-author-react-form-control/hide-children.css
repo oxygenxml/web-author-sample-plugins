@@ -1,4 +1,10 @@
-[outputclass="stepper"] {
+[outputclass="stepper"]:raw-edit {
+    content: oxy_button(action, oxy_action(
+          name, 'Back', 
+          operation, 'RemovePseudoClassOperation', 
+          arg-name, 'raw-edit'));
+}
+[outputclass="stepper"]:not(*:raw-edit) {
     content: oxy_editor(
             webappRendererClassName, "com.oxygenxml.web_author.react.StepperRenderer"
             edit, "custom");
@@ -6,9 +12,13 @@
     border-radius: 4px;
     border: 1px solid #ccc;
 }
-[outputclass="stepper"] > * > :nth-child(2) {
+[outputclass="stepper"]:not(*:raw-edit) > * > :nth-child(2) {
     margin-left: 8px;
 }
+[outputclass="stepper"]:not(*:raw-edit) > * > :first-child {
+    display: none !important;
+}
+
 :show-child-1 > *:not(:nth-child(1)) {
     display: none !important;
 }

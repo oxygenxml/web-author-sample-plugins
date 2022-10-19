@@ -4,8 +4,10 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
+import EditIcon from '@mui/icons-material/Edit';
+import {IconButton} from "@mui/material";
 
-export default function HorizontalLinearStepper({steps, onStepChanged}) {
+export default function HorizontalLinearStepper({steps, onStepChanged, onEdit}) {
   const [activeStep, setActiveStep] = React.useState(0);
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -32,6 +34,9 @@ export default function HorizontalLinearStepper({steps, onStepChanged}) {
           <Box sx={{ flex: '1 1 auto' }} />
           <Button onClick={handleNext} disabled={activeStep === steps.length - 1}>
             Next
+          </Button>
+          <Button startIcon={<EditIcon/>} onClick={onEdit}>
+            Edit
           </Button>
         </Box>
       </Box>

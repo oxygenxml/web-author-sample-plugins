@@ -9,8 +9,21 @@ import Box from "@mui/material/Box";
 function StepperEnhancer(element, editingSupport) {
   sync.formctrls.Enhancer.call(this, element, editingSupport);
   this.showChild = this.showChild.bind(this);
+  this.switchToEditMode = this.switchToEditMode.bind(this);
 }
 goog.inherits(StepperEnhancer, sync.formctrls.Enhancer);
+
+StepperEnhancer.prototype.switchToEditMode = function() {
+  console.log('here')
+  let parentNode = this.getParentNode();
+  let selectionManager = this.editingSupport.getSelectionManager();
+  let selection = selectionManager.createEmptySelectionInNode(parentNode, 'before');
+
+
+  this.editingSupport.getActionsManager().invokeOperation('SetPseudoClassOperation', {
+    name: 'raw-edit'
+  }, null, selection);
+};
 
 StepperEnhancer.prototype.getSteps = function() {
   const parentNode = this.getParentNode();
@@ -38,6 +51,7 @@ StepperEnhancer.prototype.enterDocument = function() {
           <HorizontalLinearStepper
               steps={steps}
               onStepChanged={this.showChild}
+              onEdit={this.switchToEditMode}
           />
         </Box>
       </ThemeProvider>,
