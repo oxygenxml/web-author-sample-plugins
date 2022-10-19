@@ -15,4 +15,5 @@
     <library name="lib" />
     <library name="target/classes" />
   </runtime>
+  <extension type="AuthorStylesheet" href="hide-children.css"/>
 </plugin>

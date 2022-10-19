@@ -9,11 +9,11 @@ export default function HorizontalLinearStepper({steps, onStepChanged}) {
   const [activeStep, setActiveStep] = React.useState(0);
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    onStepChanged(activeStep);
+    onStepChanged(activeStep + 2, activeStep + 1);
   };
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    onStepChanged(activeStep);
+    onStepChanged(activeStep, activeStep + 1);
   };
 
   return (

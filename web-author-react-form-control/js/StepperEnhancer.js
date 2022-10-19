@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 
 function StepperEnhancer(element, editingSupport) {
   sync.formctrls.Enhancer.call(this, element, editingSupport);
+  this.showChild = this.showChild.bind(this);
 }
 goog.inherits(StepperEnhancer, sync.formctrls.Enhancer);
 
@@ -17,10 +18,12 @@ StepperEnhancer.prototype.getSteps = function() {
       .map(child => child.childNodes[0].textContent);
 };
 
-StepperEnhancer.prototype.showChild = function(index) {
+StepperEnhancer.prototype.showChild = function(index, prevIndex) {
   const htmlElement = this.getParentNode().getHtmlNode();
-  htmlElement.setAttribute('data-show-child', '' + index);
+  htmlElement.setAttribute('data-pseudoclass-show-child-' + index, 'true');
+  htmlElement.removeAttribute('data-pseudoclass-show-child-' + prevIndex);
 }
+
 StepperEnhancer.prototype.enterDocument = function() {
   this.formControl.style.width = '100%';
   this.formControl.style.display = 'block';
@@ -34,7 +37,7 @@ StepperEnhancer.prototype.enterDocument = function() {
         <Box sx={{ my: 4 }}>
           <HorizontalLinearStepper
               steps={steps}
-              onStepChanged={activeStep => this.showChild(activeStep)}
+              onStepChanged={this.showChild}
           />
         </Box>
       </ThemeProvider>,
