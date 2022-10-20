@@ -3,6 +3,8 @@ Web Author Form Control implemented with React
 
 A plugin that implements a Form Control using React.
 
+![React plugin in action](./img/stepper.gif)
+
 How to build the plugin
 -----------------------
 
