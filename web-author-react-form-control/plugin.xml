@@ -12,7 +12,7 @@
     vendor="Syncro Soft">
 
   <runtime>
-    <library name="lib" />
+    <librariesFolder name="lib"/>
     <library name="target/classes" />
   </runtime>
   <extension type="AuthorStylesheet" href="hide-children.css"/>
