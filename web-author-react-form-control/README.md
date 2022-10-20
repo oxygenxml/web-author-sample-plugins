@@ -3,11 +3,19 @@ Web Author Form Control implemented with React
 
 A plugin that implements a Form Control using React.
 
+How to build the plugin
+-----------------------
 
-To work on the React code and have results available in the browser after a refresh, run:
+Run the following commands:
 ```
-npm run watch
+npm run compile
+mvn package
 ```
+
+The plugin archive will be available in the `target/web-author-react-plugin-<version>-plugin.jar`.
+
+How to test the plugin
+----------------------
 
 To add the form control in a topic, you can add the following structure:
 
@@ -27,3 +35,14 @@ To add the form control in a topic, you can add the following structure:
     </dlentry>
 </dl>
 ```
+
+How to develop the plugin
+-------------------------
+
+Run the following commands:
+```
+mvn compile
+npm run watch
+```
+
+The follow the instructions here: https://www.oxygenxml.com/doc/ug-waCustom/topics/webapp-plugin-prototyping.html
