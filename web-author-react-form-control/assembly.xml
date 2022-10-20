@@ -36,6 +36,9 @@
       <source>plugin.xml</source>
       <filtered>true</filtered>
     </file>
+    <file>
+      <source>hide-children.css</source>
+    </file>
   </files>
 
 </assembly>
