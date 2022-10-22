@@ -27,6 +27,7 @@ export default function HorizontalLinearStepper({steps, onStepChanged, onEdit}) 
                 </Step>
           )}
         </Stepper>
+        <slot/>
         <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
           <Button color="inherit" onClick={handleBack} disabled={activeStep === 0}>
             Back
