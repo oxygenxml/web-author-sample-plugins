@@ -14,11 +14,9 @@ function StepperEnhancer(element, editingSupport) {
 goog.inherits(StepperEnhancer, sync.formctrls.Enhancer);
 
 StepperEnhancer.prototype.switchToEditMode = function() {
-  console.log('here')
   let parentNode = this.getParentNode();
   let selectionManager = this.editingSupport.getSelectionManager();
   let selection = selectionManager.createEmptySelectionInNode(parentNode, 'before');
-
 
   this.editingSupport.getActionsManager().invokeOperation('SetPseudoClassOperation', {
     name: 'raw-edit'
@@ -37,6 +35,7 @@ StepperEnhancer.prototype.showChild = function(index, prevIndex) {
   htmlElement.removeAttribute('data-pseudoclass-show-child-' + prevIndex);
 }
 
+/** @override */
 StepperEnhancer.prototype.enterDocument = function() {
   this.formControl.style.width = '100%';
   this.formControl.style.display = 'block';
@@ -57,6 +56,8 @@ StepperEnhancer.prototype.enterDocument = function() {
       </ThemeProvider>,
   );
 }
+
+/** @override */
 StepperEnhancer.prototype.exitDocument = function() {
   this.root.unmount();
 }
