@@ -10,6 +10,7 @@ How to build the plugin
 
 Run the following commands:
 ```
+npm install
 npm run compile
 mvn package
 ```
@@ -47,4 +48,6 @@ mvn compile
 npm run watch
 ```
 
-The follow the instructions here: https://www.oxygenxml.com/doc/ug-waCustom/topics/webapp-plugin-prototyping.html
+Then, follow the instructions here: https://www.oxygenxml.com/doc/ug-waCustom/topics/webapp-plugin-prototyping.html
+
+Our customization guide contains some more details about implementing a custom form control: https://www.oxygenxml.com/doc/ug-waCustom/topics/customizing_frameworks.html#customizing_frameworks__li_bgs_dgk_54b .
