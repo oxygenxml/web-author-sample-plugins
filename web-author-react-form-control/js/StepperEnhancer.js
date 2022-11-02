@@ -31,6 +31,7 @@ StepperEnhancer.prototype.getSteps = function() {
 
 StepperEnhancer.prototype.showChild = function(index, prevIndex) {
   const htmlElement = this.getParentNode().getHtmlNode();
+  // WARNING: This code uses some implementation details that could change in future releases.
   htmlElement.setAttribute('data-pseudoclass-show-child-' + index, 'true');
   htmlElement.removeAttribute('data-pseudoclass-show-child-' + prevIndex);
 }
