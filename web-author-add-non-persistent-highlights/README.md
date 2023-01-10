@@ -7,4 +7,4 @@ Sample plugin that add non persistent highlights on each paragraph:
  
 The highlights [are added with some attributes](src/main/java/com/oxygenxml/ParagraphsHighlighter.java#L39) that are [matched in CSS](web/static/custom-style.css) to assign a custom style to these highlights. 
 
-The CSS file, loaded using a WebappStaticResourcesFolder extension.
+The CSS file is loaded using a WebappStaticResourcesFolder extension.
