@@ -1,0 +1,50 @@
+tgroup:before {
+    content: 
+        oxy_button(action, oxy_action(
+        name, 'Insert Row', 
+        description, 'Insert Table Row', 
+        icon, url('/images/TableRow16.png'),
+        operation, 'com.oxygenxml.sample.cals.tables.InsertRowOperation', 
+        arg-insertLocation, 'ancestor-or-self::row[1]',
+        arg-insertPosition, 'After'),
+        actionContext, 'caret')
+        
+        oxy_button(action, oxy_action(
+        name, 'Delete Row', 
+        description, 'Delete Table Row', 
+        icon, url('/images/DeleteRow16.png'),
+        operation, 'com.oxygenxml.sample.cals.tables.DeleteRowOperation'),
+        actionContext, 'caret')
+        
+        '|'
+        
+        oxy_button(action, oxy_action(
+        name, 'Insert Column', 
+        description, 'Insert Table Column', 
+        icon, url('/images/TableColumn16.png'),
+        operation, 'com.oxygenxml.sample.cals.tables.InsertColumnOperation'),
+        actionContext, 'caret')
+        
+        oxy_button(action, oxy_action(
+        name, 'Delete Column', 
+        description, 'Delete Table Column', 
+        icon, url('/images/DeleteColumn16.png'),
+        operation, 'com.oxygenxml.sample.cals.tables.DeleteColumnOperation'),
+        actionContext, 'caret')
+        
+        '|'
+        
+        oxy_button(action, oxy_action(
+        name, 'Join', 
+        description, 'Join Selected Table Cells',
+        icon, url('/images/TableJoin16.png'), 
+        operation, 'com.oxygenxml.sample.cals.tables.JoinCellsOperation'),
+        actionContext, 'caret')
+        
+        oxy_button(action, oxy_action(
+        name, 'Split', 
+        description, 'Split Current Cell',
+        icon, url('/images/TableSplitCell16.png'), 
+        operation, 'com.oxygenxml.sample.cals.tables.SplitCellsOperation'),
+        actionContext, 'caret') !important;
+}
