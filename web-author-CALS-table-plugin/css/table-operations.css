@@ -1,8 +1,8 @@
 tgroup:before {
     content: 
         oxy_button(action, oxy_action(
-        name, '${i18n(Insert_row)}', 
-        description, '${i18n(Insert_row)}', 
+        name, 'Insert Row', 
+        description, 'Insert Table Row', 
         icon, url('/images/TableRow16.png'),
         operation, 'com.oxygenxml.sample.cals.tables.InsertRowOperation', 
         arg-insertLocation, 'ancestor-or-self::row[1]',
@@ -10,8 +10,8 @@ tgroup:before {
         actionContext, 'caret')
         
         oxy_button(action, oxy_action(
-        name, '${i18n(Delete_row)}', 
-        description, '${i18n(Delete_row)}', 
+        name, 'Delete Row', 
+        description, 'Delete Table Row', 
         icon, url('/images/DeleteRow16.png'),
         operation, 'com.oxygenxml.sample.cals.tables.DeleteRowOperation'),
         actionContext, 'caret')
@@ -19,15 +19,15 @@ tgroup:before {
         '|'
         
         oxy_button(action, oxy_action(
-        name, '${i18n(Insert_column)}', 
-        description, '${i18n(Insert_column)}', 
+        name, 'Insert Column', 
+        description, 'Insert Table Column', 
         icon, url('/images/TableColumn16.png'),
         operation, 'com.oxygenxml.sample.cals.tables.InsertColumnOperation'),
         actionContext, 'caret')
         
         oxy_button(action, oxy_action(
         name, 'Delete Column', 
-        description, 'Delete Column', 
+        description, 'Delete Table Column', 
         icon, url('/images/DeleteColumn16.png'),
         operation, 'com.oxygenxml.sample.cals.tables.DeleteColumnOperation'),
         actionContext, 'caret')
