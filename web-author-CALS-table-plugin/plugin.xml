@@ -1,0 +1,21 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="com.oxygenxml.sample.cals.tables.CalsTablesSupportPlugin"
+  id="cals-tables-plugin"
+  name="CALS Table support for any XML document"
+  description="Includes the CALS table support"
+  version="1.0"
+  vendor="Syncro Soft">
+
+  <extension type="AuthorStylesheet" href="css/cals_table.css"/>
+  <!-- There is a limitation for the moment in that the actions executed from a CSS added by a plugin are not considered trusted. -->
+  <!-- Until the limitation is removed we used the following workaround: the css folder is added as an additional framework resource, to be considered safe  -->
+  <extension type="AdditionalFrameworks" path="css"/>
+  
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+</plugin>
