@@ -14,7 +14,7 @@ A sample file is available in the [samples](./samples) folder.
 Usage
 -----
 
-Once you installed the plugin, to add such a computed value, add the following processing-instruction in the XML source:
+Once you [installed the plugin](../README.md#installation), to add such a computed value, add the following processing-instruction in the XML source:
 
     <?computed-value formula="[some-xpath-expression]"?>
 
