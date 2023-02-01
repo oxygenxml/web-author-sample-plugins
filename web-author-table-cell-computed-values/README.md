@@ -6,11 +6,9 @@ Plugin that allows you to add automatically-computed values in a table cell.
 Demo
 ----
 
-You can see a demo of this plugin in action in the [sample document](./samples/elections.dita):
+A sample file is available in the [samples](./samples) folder.
 
-![Demo](./samples/elections.gif)
-
-[Try it yourself](https://www.oxygenxml.com/oxygen-xml-web-author/app/oxygen.html?url=gitgh%3A%2F%2Fhttps%253A%252F%252Fgithub.com%252Foxygenxml%252Fweb-author-sample-plugins%2Fmaster%2Fweb-author-table-cell-formulas%2Fsamples%2Felections.dita)
+![Demo](./samples/computed-value.gif)
 
 
 Usage
