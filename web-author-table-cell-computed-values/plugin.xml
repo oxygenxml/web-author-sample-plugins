@@ -1,0 +1,19 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin class="ro.sync.exml.plugin.Plugin"
+        id="table-cell-computed-values"
+        name="Table Cell Computed Values"
+        description="Plugin that allows the user to use auto-computed values in a table cell."
+        version="1.0"
+        vendor="Syncro Soft">
+
+    <runtime>
+        <librariesFolder name="lib"/>
+        <library name="target/classes"/>
+        <librariesFolder name="target/lib"/>
+    </runtime>
+    <extension type="WorkspaceAccess"
+               class="com.oxygenxml.webapp.plugins.table.cell.formula.FormulaRefresherInstaller"/>
+    <extension type="AuthorStylesheet" href="formulas.css"/>
+</plugin>
+
