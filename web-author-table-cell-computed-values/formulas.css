@@ -1,0 +1,10 @@
+@namespace oxy url('http://www.oxygenxml.com/extensions/author');
+
+oxy|processing-instruction[computed-value] {
+    visibility: -oxy-collapse-text;
+    color: black !important;
+    -oxy-editable: false;
+}
+oxy|processing-instruction[computed-value]:before {
+    content: oxy_xpath(attr(formula));
+}

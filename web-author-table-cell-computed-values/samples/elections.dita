@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="lilac">
+ <title>Mexican election tables</title>
+ <body>
+  <section id="section_aq2_1j2_jwb">
+   <title>Election, 1 July 2018</title>
+   <p>
+    <simpletable relcolwidth="1* 1*" id="simpletable_pbf_mf2_jwb">
+     <sthead>
+      <stentry>Party</stentry>
+      <stentry>Seats</stentry>
+     </sthead>
+     <strow>
+      <stentry>MORENA</stentry>
+      <stentry>55</stentry>
+     </strow>
+     <strow>
+      <stentry>PAN</stentry>
+      <stentry>23</stentry>
+     </strow>
+     <strow>
+      <stentry>PRI</stentry>
+      <stentry>14</stentry>
+     </strow>
+     <strow>
+      <stentry>PRD</stentry>
+      <stentry>8</stentry>
+     </strow>
+     <strow>
+      <stentry>PES</stentry>
+      <stentry>8</stentry>
+     </strow>
+     <strow>
+      <stentry>MC</stentry>
+      <stentry>7</stentry>
+     </strow>
+     <strow>
+      <stentry>PVEM</stentry>
+      <stentry>6</stentry>
+     </strow>
+     <strow>
+      <stentry>PT</stentry>
+      <stentry>6</stentry>
+     </strow>
+     <strow>
+      <stentry>PANAL</stentry>
+      <stentry>1</stentry>
+     </strow>
+     <strow>
+      <stentry><b>Total</b></stentry>
+      <stentry><?computed-value formula="
+let $cell := ./ancestor-or-self::stentry,
+    $table := ./ancestor-or-self::simpletable,
+    $column :=  count(./ancestor-or-self::stentry/preceding-sibling::*) + 1
+return sum($table/strow/stentry[$column][text() != ''])"?></stentry>
+     </strow>
+    </simpletable>
+   </p>
+   <p>Source: <xref href="https://en.wikipedia.org/wiki/2018_Mexican_general_election" format="html"
+     scope="external">https://en.wikipedia.org/wiki/2018_Mexican_general_election</xref></p>
+  </section>
+  <section id="section_mjj_y32_jwb">
+   <title>Election, 6 June 2021</title>
+   <p>
+    <simpletable relcolwidth="1* 1*" id="simpletable_khy_q32_jwb">
+     <sthead>
+      <stentry>Party</stentry>
+      <stentry>Seats</stentry>
+     </sthead>
+     <strow>
+      <stentry>MORENA</stentry>
+      <stentry>198</stentry>
+     </strow>
+     <strow>
+      <stentry>PAN</stentry>
+      <stentry>114</stentry>
+     </strow>
+     <strow>
+      <stentry>PRI</stentry>
+      <stentry>70</stentry>
+     </strow>
+     <strow>
+      <stentry>PVEM</stentry>
+      <stentry>43</stentry>
+     </strow>
+     <strow>
+      <stentry>PT</stentry>
+      <stentry>37</stentry>
+     </strow>
+     <strow>
+      <stentry>MC</stentry>
+      <stentry>23</stentry>
+     </strow>
+     <strow>
+      <stentry>PRD</stentry>
+      <stentry>15</stentry>
+     </strow>
+     <strow>
+      <stentry><b>Total</b></stentry>
+      <stentry><?computed-value formula="
+let $cell := ./ancestor-or-self::stentry,
+    $table := ./ancestor-or-self::simpletable,
+    $column :=  count(./ancestor-or-self::stentry/preceding-sibling::*) + 1
+return sum($table/strow/stentry[$column][text() != ''])"?></stentry>
+     </strow>
+    </simpletable>
+   </p>
+   <p>Source: <xref href="https://en.wikipedia.org/wiki/2021_Mexican_legislative_election"
+     format="html" scope="external"
+     >https://en.wikipedia.org/wiki/2021_Mexican_legislative_election</xref></p>
+  </section>
+ </body>
+</topic>
