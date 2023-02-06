@@ -23,26 +23,25 @@
       return workspace.getOption('spellcheck.enabled') == "true";
     };
 
-    renderSmallIcon() {
-      this.smallIconDiv_ = sync.util.renderSmallIcon(this.getIconUrl());
-      return this.smallIconDiv_;
+    renderLargeIcon() {
+      this.iconDiv_ = goog.dom.createDom("div", 'ui-action-large-icon');
+      this.updateIcon();
+      return this.iconDiv_;
     }
 
     getIconUrl() {
+      var path = '../rest/' + sync.api.Version + '/load/image/';
       var hidpi = sync.util.getHdpiFactor();
-      var iconUrl = "/images/" + (this.isAutospellcheckOn() ? "CheckSpelling16.png" : "CheckSpellingDisabled16.png");
-      return sync.util.image.getImageUrl(iconUrl, hidpi);
-    }
+      if(hidpi) {
+        path += hidpi;
+      }
+      path += '?url=/images/' + (this.isAutospellcheckOn() ? "CheckSpelling16.png" : "CheckSpellingDisabled16.png");
+      return path;
+    };
 
     updateIcon() {
-      goog.style.setStyle(this.smallIconDiv_, 'backgroundImage', 'url("' + this.getIconUrl() + '")');
+      goog.style.setStyle(this.iconDiv_, 'backgroundImage', 'url("' + this.getIconUrl() + '")');
     }
-
-    /** @override */
-    getSmallIcon(opt_dpi) {
-      var iconUrl = "/images/" + (this.isAutospellcheckOn() ? "CheckSpelling16.png" : "CheckSpellingDisabled16.png");
-      return sync.util.image.getImageUrl(iconUrl, opt_dpi);
-    };
   }
 
 
@@ -55,7 +54,6 @@
     editor.getActionsManager().registerAction(actionId, new ToggleAutospellcheck(editor));
 
     goog.events.listen(editor, sync.api.Editor.EventTypes.ACTIONS_LOADED, e => {
-      console.log(e.actionsConfiguration)
       let toolbar = e.actionsConfiguration.toolbars[0];
       if (toolbar && toolbar.name === 'Review') {
         toolbar.children.unshift({
