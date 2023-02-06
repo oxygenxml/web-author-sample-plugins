@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="ro.sync.exml.plugin.Plugin"
+    id="web-author-autospellcheck-on-off"
+    name="Web Author Autospellcheck On/Off"
+    description="Add a button to the toolbar that enables/disables the auto spellcheck"
+    version="1.0"
+    vendor="Syncro Soft">
+</plugin>
