@@ -1,7 +1,7 @@
 Full Map Editing For Approval Tasks
 ===================================
 
-This plugin works can be installed in the Web Author editing component deployed in Content Fusion. 
+This plugin can be installed in the Web Author editing component deployed in Content Fusion. 
 
 The plugin activates when a task contains the "[APPROVAL]" token in the title.
 
