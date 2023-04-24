@@ -67,6 +67,24 @@ A plugin that contributes an 'Elements' view that displays elements that can be 
 ### [web-author-file-open-action](web-author-file-open-action)
 Oxygen XML Web Author plugin that contributes an "Open..." action to the "More..." (triple dots) menu that lets the user browse for a file and open it in the current editor.
 
+### [web-author-filter-extension](web-author-filter-extension)
+This plugin implements a custom servlet filter plugin extension.
+
+As an use-case it blocks requests to the dashboard page by redirecting to an external URL defined by com.oxygenxml.ServletFilterExtension.REDIRECT_URL (https://www.oxygenxml.com/ as an example).
+
+### [web-author-react-form-control](web-author-react-form-control)
+A plugin that implements a Form Control using React.
+
+### [web-author-rooms-manager-plugin](web-author-rooms-manager-plugin)
+Sample plugin that manages rooms*:
+- assign each opened document to an already existing room or create a new one
+- rooms are created with a custom save strategy to save changes made by peers on behalf of the committer (the one requests to save). See GroupChangesSaveStrategy
+- if two users open the same document, they will concurrently edit the document
+- close rooms that become empty 
+
+*A room is an abstraction for a set of document models created for the same document.
+Such models belong to different users and are edited concurrently and synchronized in real-time.
+
 ### [web-author-side-by-side-editors](web-author-side-by-side-editors)
 Is a plugin that presents two side by side Web Author editors in preview mode.
 Before each element that has the _id_ attribute a button it is presented. When the button is clicked the other editor scrolls to the element having the same value for the _id_ attribute.
