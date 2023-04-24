@@ -31,7 +31,7 @@ If the folder `/Content/` is moved to, say, `/project1/Content`, all the referen
 ### user-name-insert-operation-plugin
 This plugin contributes an equivalent of InsertFragmentOperation, but which support an ${user.name} editor variable that expands to the name of the current user.
 
-### web-author-CALS-table-plugin/
+### web-author-CALS-table-plugin
 Sample plugin that adds the following CALS Table support for any XML document:
  - table rendering
  - specific actions are added before each table to insert or delete rows and columns and to join or split cells
