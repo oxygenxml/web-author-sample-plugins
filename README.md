@@ -163,7 +163,7 @@ Sample plugin that allows inserting elements that are not valid at caret positio
 Sample plugin to run an XSLT script over the current document and return the result to the client as string.
 
 ### [web-author-view-final-track-changes](web-author-view-final-track-changes)
-Oxygen XML Web Author plugin that defaults the track changes view mode to final.
+Oxygen XML Web Author plugin that defaults the track changes view mode to "View Final".
 
 
 ## Copyright and License
