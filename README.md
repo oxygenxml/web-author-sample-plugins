@@ -20,6 +20,12 @@ This plugin works can be installed in the Web Author editing component deployed 
 The plugin activates when a task contains the "[APPROVAL]" token in the title.
 When active, the plugin forces users to review topics in the context of the DITA Map with expanded topics.
 
+### oxygen-dita-extensions-bundle-extension
+Sample plugin that contributes a framework that extends the built-in DITA framework. The use case is to set a custom ExtensionsBundle implementation that extends the built-in implementation.
+
+**_NOTE:_** if you don't need to specifically provide the framework via a plugin, it's simpler to add the framework directly.
+Here you can find the similar, standalone framework: [https://github.com/oxygenxml-incubator/oxygen-sample-frameworks/tree/main/dita-extension-custom-proposed-attribute-values](https://github.com/oxygenxml-incubator/oxygen-sample-frameworks/tree/main/dita-extension-custom-proposed-attribute-values)
+
 ### remove-prefix-uri-resolver
 This plugin resolves absolute references after removing a prefix of them to make them relative.
 For example, assume that all content is stored in a folder called `Content` in the root of a web server, in a DITA topic there is an image reference as below:
