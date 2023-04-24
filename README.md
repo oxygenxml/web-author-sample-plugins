@@ -29,18 +29,7 @@ For example, assume that all content is stored in a folder called `Content` in t
 If the folder `/Content/` is moved to, say, `/project1/Content`, all the references will be broken. This plugin installs an `URIResolver` that removes the `/Content/` prefix of the references, making them relative references.
 
 ### user-name-insert-operation-plugin
-This plugin contributes an equivalent of InsertFragmentOperation, but which support an ${user.name} editor variable that expands to the name of the current user. The fully qualified name of the operation is: `com.oxygenxml.username.InsertFragmentOperation`.
-The operation can be used in CSS as below:
-```css
-title:after{
-    content: oxy_button(
-       action, oxy_action(
-         name, 'Add change item',
-         arg-fragment, '<i>${user.name}</i>',
-         operation, 'com.oxygenxml.username.InsertFragmentOperation'),
-       showText, false);
-}
-```
+This plugin contributes an equivalent of InsertFragmentOperation, but which support an ${user.name} editor variable that expands to the name of the current user.
 
 ### web-author-CALS-table-plugin/
 Sample plugin that adds the following CALS Table support for any XML document:
@@ -114,9 +103,6 @@ Sample plugin that allows inserting elements that are not valid at caret positio
 
 Sample plugin to run an XSLT script over the current document and return the result to the client as string.
 
-### user-name-insert-operation-plugin
-
-This plugin contributes an equivalent of InsertFragmentOperation, but which support an ${user.name} editor variable that expands to the name of the current user.
 
 ### web-author-view-final-track-changes
 Oxygen XML Web Author plugin that defaults the track changes view mode to final.
