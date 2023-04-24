@@ -28,10 +28,12 @@ Here you can find the similar, standalone framework: [https://github.com/oxygenx
 
 ### [remove-prefix-uri-resolver](remove-prefix-uri-resolver)
 This plugin resolves absolute references after removing a prefix of them to make them relative.
+
 For example, assume that all content is stored in a folder called `Content` in the root of a web server, in a DITA topic there is an image reference as below:
 ```xml
 <image href="/Content/image.png"/>
 ```
+
 If the folder `/Content/` is moved to, say, `/project1/Content`, all the references will be broken. This plugin installs an `URIResolver` that removes the `/Content/` prefix of the references, making them relative references.
 
 ### [user-name-insert-operation-plugin](user-name-insert-operation-plugin)
@@ -95,6 +97,7 @@ Sample plugin that removes all the warnings from the validation result list.
 
 ### [web-author-view-file-as-text](web-author-view-file-as-text)
 Plugin contributes an action to choose a file and view it as text.
+
 It performs the following steps:
 - Show a file browser so that the user can choose the file
 - Invoke a server-side operation to retrieve the content of the file
@@ -113,6 +116,7 @@ Such models belong to different users and are edited concurrently and synchroniz
 
 ### [web-author-side-by-side-editors](web-author-side-by-side-editors)
 Is a plugin that presents two side by side Web Author editors in preview mode.
+
 Before each element that has the _id_ attribute a button it is presented. When the button is clicked the other editor scrolls to the element having the same value for the _id_ attribute.
 
 ### [web-author-change-ui-with-css](web-author-change-ui-with-css)
@@ -125,6 +129,7 @@ Sample plugin that imposes some loading options depending on the file extension:
 
 ### [web-author-impose-options](web-author-impose-options)
 Oxygen XML Web Author stores its options in an options.xml file, located in the options folder of the Oxygen Data Directory.
+
 This is a sample plugin for imposing specific options. The "tagless.editor.tags.display.mode" option value is set to 1,
 meaning that all the documents are opened with "no tags" mode activated.
 
@@ -139,6 +144,7 @@ Plugin that blocks saving invalid documents.
 
 ### [web-author-hide-app-bar](web-author-hide-app-bar)
 Plugins that hides the Web Author app bar, usefull when integrating the Web Author in an iframe.
+
 This plugin only contributes a single client-side javascript file.
 
 ### [web-author-hide-filtered-content](web-author-hide-filtered-content)
