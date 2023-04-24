@@ -52,6 +52,21 @@ This sample plugin adds a button to the toolbar to allow users to easily enable 
 ### [web-author-block-deleting-suggestions](web-author-block-deleting-suggestions)
 Plugin that blocks a user from deleting tracked changes made by another user.
 
+### [web-author-block-save-if-invalid](web-author-block-save-if-invalid)
+Plugin that blocks saving invalid documents.
+
+### [web-author-comment-eol-fixup](web-author-comment-eol-fixup)
+Plugin that fixes the line separator in review comments to Linux-style. This plugin registers an AuthorDocumentFilter to modify review comments before they are inserted. It does not fix the exisiting comments.
+
+### [web-author-document-preview-dialog-plugin](web-author-document-preview-dialog-plugin)
+This sample plugin uses the editor.previewAuthorDocument to let the user preview another XML document inside a dialog. The user has to browse for a file, then the file will be displayed inside a dialog.
+
+### [web-author-elements-view](web-author-elements-view)
+A plugin that contributes an 'Elements' view that displays elements that can be inserted at the caret position
+
+### [web-author-file-open-action](web-author-file-open-action)
+Oxygen XML Web Author plugin that contributes an "Open..." action to the "More..." (triple dots) menu that lets the user browse for a file and open it in the current editor.
+
 ### [web-author-side-by-side-editors](web-author-side-by-side-editors)
 Is a plugin that presents two side by side Web Author editors in preview mode.
 Before each element that has the _id_ attribute a button it is presented. When the button is clicked the other editor scrolls to the element having the same value for the _id_ attribute.
