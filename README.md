@@ -75,6 +75,32 @@ As an use-case it blocks requests to the dashboard page by redirecting to an ext
 ### [web-author-react-form-control](web-author-react-form-control)
 A plugin that implements a Form Control using React.
 
+### [web-author-set-attribute-on-new-paragraphs](web-author-set-attribute-on-new-paragraphs)
+Plugin that adds "normal" outputclass attribute to paragraph elements that have no outputclass set, when inserted in the document.
+
+### [web-author-static-page](web-author-static-page)
+This plugin hosts a static Web Page on the Web Author server. The page is accessible at:
+
+http://example.org:8443/oxygen-xml-web-author/plugin-resources/web-root/index.html
+
+Where the Web Author's Dashboard is located at:
+
+http://example.org:8443/oxygen-xml-web-author/app/oxygen.html
+
+### [web-author-table-cell-computed-values](web-author-table-cell-computed-values)
+Plugin that allows you to add automatically-computed values in a table cell.
+
+### [web-author-validation-problems-filter](web-author-validation-problems-filter)
+Sample plugin that removes all the warnings from the validation result list.
+
+### [web-author-view-file-as-text](web-author-view-file-as-text)
+Plugin contributes an action to choose a file and view it as text.
+It performs the following steps:
+- Show a file browser so that the user can choose the file
+- Invoke a server-side operation to retrieve the content of the file
+- The server-side operation connects to the CMS to read the content of the file and sends it back to the browser. The authentication context of the main document (the one opened in the editor) is used when loading this file.
+- The file content is displayed in an alert in the browser.
+
 ### [web-author-rooms-manager-plugin](web-author-rooms-manager-plugin)
 Sample plugin that manages rooms*:
 - assign each opened document to an already existing room or create a new one
