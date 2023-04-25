@@ -171,6 +171,10 @@ Sample plugin to run an XSLT script over the current document and return the res
 ### [web-author-view-final-track-changes](web-author-view-final-track-changes)
 Oxygen XML Web Author plugin that defaults the track changes view mode to "View Final".
 
+### [web-author-custom-attribute-editing-action-plugin](web-author-custom-attribute-editing-action-plugin)
+Example plugin for Oxygen XML Web Author that defines a custom action for attributes editing.
+It implements the [sync.actions.AttributeEditingActionsProvider](https://www.oxygenxml.com/maven/com/oxygenxml/oxygen-webapp/25.1.0.0/jsdoc/sync.actions.AttributeEditingActionsProvider.html) JS API.
+The sync.actions.AttributeEditingActionsProvider JS API extension should be used when you need to implement a custom UI (or dialog) for choosing attribute values. Another use-case would be if the attribute values are dynamic, either computed client-side or fetched from other servers.
 
 ## Copyright and License
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
