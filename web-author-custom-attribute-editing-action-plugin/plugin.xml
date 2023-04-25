@@ -1,0 +1,11 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="web-author-custom-attribute-editing-action-plugin"
+  name="Custom Attribute Editing Action"
+  description="Example plugin that uses the sync.actions.AttributeEditingActionsProvider JS API."
+  version="1.0"
+  vendor="Syncro Soft">
+</plugin>
+
