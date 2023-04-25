@@ -44,8 +44,6 @@ Sample plugin that adds the following CALS Table support for any XML document:
  - table rendering
  - specific actions are added before each table to insert or delete rows and columns and to join or split cells
  - multiple rows and columns can be selected (by mouse drag or click on column header markers) to easily copy or move table data by using copy/paste
- 
- https://github.com/oxygenxml/web-author-sample-plugins/labels/Tables
 
 ### [web-author-add-non-persistent-highlights](web-author-add-non-persistent-highlights)
 Sample plugin that add non persistent highlights on each paragraph when the document is opened and edited.
@@ -91,7 +89,7 @@ Where the Web Author's Dashboard is located at:
 
 http://example.org:8443/oxygen-xml-web-author/app/oxygen.html
 
-### [web-author-table-cell-computed-values](web-author-table-cell-computed-values) https://github.com/oxygenxml/web-author-sample-plugins/labels/Tables
+### [web-author-table-cell-computed-values](web-author-table-cell-computed-values) 
 Plugin that allows you to add automatically-computed values in a table cell.
 
 ### [web-author-validation-problems-filter](web-author-validation-problems-filter)
