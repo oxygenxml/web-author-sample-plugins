@@ -24,32 +24,13 @@ class CustomAttributeEditingAction extends sync.actions.AttributeEditingAction {
     dialog.setButtonConfiguration(sync.api.Dialog.ButtonConfiguration.OK_CANCEL);
 
     let dialogContainerElement = dialog.getElement();
-    let dialogParagrapth = document.createElement("p");
-    dialogContainerElement.appendChild(dialogParagrapth);
-    let dialogParagrapthText = document.createTextNode("Choose attribute value for attribute:");
-    dialogParagrapth.appendChild(dialogParagrapthText);
-
-    let selectEl = document.createElement("select");
-    dialogContainerElement.appendChild(selectEl);
-
-    let selectOption1 = document.createElement("option");
-    selectEl.appendChild(selectOption1);
-    selectOption1.setAttribute("value", "value1");
-    selectOption1.appendChild(document.createTextNode("value1"));
-
-    let selectOption2 = document.createElement("option");
-    selectEl.appendChild(selectOption2);
-    selectOption2.setAttribute("value", "value2");
-    selectOption2.appendChild(document.createTextNode("value2"));
-
-    let selectOption3 = document.createElement("option");
-    selectEl.appendChild(selectOption3);
-    selectOption3.setAttribute("value", "value3");
-    selectOption3.appendChild(document.createTextNode("value3"));
+    dialogContainerElement.appendChild(this.rederParagrapthWithDescription_());
+    let selectElement = this.rederCombobox_();
+    dialogContainerElement.appendChild(selectElement);
 
     dialog.onSelect(function(key) {
       if (key === "ok") {
-        let selectedValue = selectEl.options[selectEl.selectedIndex].text;
+        let selectedValue = selectElement.options[selectElement.selectedIndex].text;
         done(selectedValue);
       } else {
         // Cancel button was pressed.
@@ -58,4 +39,24 @@ class CustomAttributeEditingAction extends sync.actions.AttributeEditingAction {
     });
     dialog.show();
   };
+
+
+  rederParagrapthWithDescription_() {
+    let dialogParagrapth = document.createElement("p");
+
+    let dialogParagrapthText = document.createTextNode("Choose attribute value for attribute:");
+    dialogParagrapth.appendChild(dialogParagrapthText);
+    return dialogParagrapth;
+  }
+
+  rederCombobox_() {
+    let selectEl = document.createElement("select");
+    for (let i = 0; i < 10; i++) {
+      let selectOption = document.createElement("option");
+      selectEl.appendChild(selectOption);
+      selectOption.setAttribute("value", "value" + i);
+      selectOption.appendChild(document.createTextNode("value" + i));
+    }
+    return selectEl;
+  }
 }
