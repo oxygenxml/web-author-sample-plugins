@@ -7,3 +7,5 @@ Sample plugin that adds the following CALS Table support for any XML document:
  - multiple rows and columns can be selected (by mouse drag or click on column header markers) to easily copy or move table data by using copy/paste
  
 This plugin is compatible with both Oxygen Web Author and Oxygen Xml Editor.
+
+https://github.com/oxygenxml/web-author-sample-plugins/labels/Tables
