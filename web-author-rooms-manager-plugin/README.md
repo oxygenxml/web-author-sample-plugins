@@ -9,3 +9,7 @@ Sample plugin that manages rooms*:
 
 *A room is an abstraction for a set of document models created for the same document.
 Such models belong to different users and are edited concurrently and synchronized in real-time.
+
+---
+
+Notice that it's recommended to also enable the [always.send.keepalive](https://www.oxygenxml.com/doc/ug-waCustom/topics/customizing-options.html) option to mitigate dangling rooms for the closed tabs which fail to notice server about the disposed of the session. When closing the tab there is fired a dispose request that in some cases might not reach the server, leading to the WebappEditingSessionLifecycleListener.editingSessionClosed() server-side method being fired by default much later on, when the server-side session expires.
