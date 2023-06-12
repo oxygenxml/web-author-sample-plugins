@@ -1,4 +1,4 @@
-Block Comments Deletion
+Block Review Comments Deletion
 ===============================
 
-Plugin that blocks a user from deleting comments added by another user.
+Plugin that blocks a user from deleting review comments added by another user.
