@@ -52,7 +52,7 @@ Sample plugin that add non persistent highlights on each paragraph when the docu
 This sample plugin adds a button to the toolbar to allow users to easily enable or disable the autospellcheck.
 
 ### [web-author-block-deleting-comments](web-author-block-deleting-comments)
-Plugin that blocks a user from deleting comments added by another user.
+Plugin that blocks a user from deleting review comments added by another user.
 
 ### [web-author-block-deleting-suggestions](web-author-block-deleting-suggestions)
 Plugin that blocks a user from deleting tracked changes made by another user.
