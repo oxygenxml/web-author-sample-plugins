@@ -11,7 +11,9 @@
       let ditaMapFileName = config.singleTopicLayout && config.singleTopicLayout.ditaMapFileName;
       if (ditaMapFileName) {
         let url = new URLSearchParams(window.location.search).get('url');
-        newDitaMapUrl = url.replace(new RegExp('/topics/.*'), '/' + ditaMapFileName);
+        if (url) {
+          newDitaMapUrl = url.replace(new RegExp('/topics/.*'), '/' + ditaMapFileName);
+        }
       }
     }
     if (newDitaMapUrl !== null) {
