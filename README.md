@@ -151,8 +151,8 @@ Plugins that hides the Web Author app bar, usefull when integrating the Web Auth
 
 This plugin only contributes a single client-side javascript file.
 
-### [web-author-hide-filtered-content](web-author-hide-filtered-content)
-Plugin that hides the content that is filtered out by a DITAVAL filter. By default Web Author shows this content greyed out.
+### [web-author-filter-content](web-author-filter-content)
+Plugin that hides the content based on a CSS selector. For demonstration purposes it hides the DITA elements that have the "processing-role" attribute set to "resource-only".
 
 ### [web-author-paste-actions](web-author-paste-actions)
 Plugin that replaces the "Paste Special" action with two individual actions: `Paste as Text` (Ctrl+Alt+T) and `Paste as XML` (Ctrl+Alt+X).
