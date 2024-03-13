@@ -163,6 +163,9 @@ Plugin that switches Web Author to a comments-only mode.
 ### [web-author-custom-author-style](web-author-custom-author-style)
 Plugin that enforces a custom stylesheet for all XML documents loaded in Web Author.
 
+### [web-author-filter-id-attribute](web-author-filter-id-attribute)
+Sample plugin that uses the ro.sync.ecss.extensions.api.attributes.AuthorAttributesDisplayFilter API to filter the "id" attribute on any element.
+
 ### [web-author-filter-styles](web-author-filter-styles)
 Plugin that adds a Styles Filter that can be used to replace the CSS styles associated to an element or a pseudo element.
 
