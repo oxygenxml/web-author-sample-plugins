@@ -1,0 +1,4 @@
+/* Hides elements that have the "resource-only" attribute set to "resource-only". */
+*[processing-role="resource-only"] {
+    display: none !important;
+}

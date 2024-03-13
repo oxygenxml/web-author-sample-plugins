@@ -1,0 +1,12 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="hide-content"
+  name="Hide Content"
+  description="Plugin that hides the content based on a CSS selector. For demonstration purposes it hides the DITA elements that have the 'processing-role' attribute set to 'resource-only'."
+  version="1.0"
+  vendor="Syncro Soft">
+    <extension type="WebappCSSResource" href="hide-content.css"/>
+</plugin>
+

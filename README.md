@@ -9,6 +9,7 @@ Each folder contains one plugin. To install such a plugin you should:
  1. Create an archive with just the folder that contains the desired plugin
  1. Go to the Web Author **Administration Page**
  1. In the **Plugins** section, click **Upload Plugin** and choose the archive made at step 2.
+ 1. Restart the Web Author server.
 
 ## Plugins
 
@@ -50,6 +51,9 @@ Sample plugin that add non persistent highlights on each paragraph when the docu
  
 ### [web-author-autospellcheck-on-off](web-author-autospellcheck-on-off)
 This sample plugin adds a button to the toolbar to allow users to easily enable or disable the autospellcheck.
+
+### [web-author-block-deleting-comments](web-author-block-deleting-comments)
+Plugin that blocks a user from deleting review comments added by another user.
 
 ### [web-author-block-deleting-suggestions](web-author-block-deleting-suggestions)
 Plugin that blocks a user from deleting tracked changes made by another user.
@@ -147,8 +151,8 @@ Plugins that hides the Web Author app bar, usefull when integrating the Web Auth
 
 This plugin only contributes a single client-side javascript file.
 
-### [web-author-hide-filtered-content](web-author-hide-filtered-content)
-Plugin that hides the content that is filtered out by a DITAVAL filter. By default Web Author shows this content greyed out.
+### [web-author-filter-content](web-author-filter-content)
+Plugin that hides the content based on a CSS selector. For demonstration purposes it hides the DITA elements that have the "processing-role" attribute set to "resource-only".
 
 ### [web-author-paste-actions](web-author-paste-actions)
 Plugin that replaces the "Paste Special" action with two individual actions: `Paste as Text` (Ctrl+Alt+T) and `Paste as XML` (Ctrl+Alt+X).
