@@ -43,11 +43,13 @@
     }
 
     update() {
-      this.actionsManager_.invokeOperation(
-          'com.oxygenxml.webapp.elements.GetElementsValidToInsert', {},
-          (e, elems) => this.renderElements(elems),
-          null,
-          true);
+      if (this.actionsManager_) {
+        this.actionsManager_.invokeOperation(
+            'com.oxygenxml.webapp.elements.GetElementsValidToInsert', {},
+            (e, elems) => this.renderElements(elems),
+            null,
+            true);
+      }
     }
 
     renderElements(commaSeparatedNames) {
