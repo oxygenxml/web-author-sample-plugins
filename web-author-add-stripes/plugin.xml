@@ -1,0 +1,9 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="justtest"
+  name="justname"
+  description="insert action"
+  version="1.0"
+  vendor="syncro">
+</plugin>
