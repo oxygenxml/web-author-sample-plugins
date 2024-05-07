@@ -1,9 +1,9 @@
 <!DOCTYPE plugin SYSTEM "../plugin.dtd">
 <plugin
   class="ro.sync.exml.plugin.Plugin"
-  id="justtest"
-  name="justname"
-  description="insert action"
+  id="web-author-add-stripes-to-the-editor-workspace"
+  name="web-author-add-stripes-to-the-editor-workspace"
+  description="A plugin for Oxygen XML Web Author that add stripes to the editor workspace"
   version="1.0"
-  vendor="syncro">
+  vendor="Syncro Soft">
 </plugin>
