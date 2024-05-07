@@ -3,7 +3,7 @@
   class="ro.sync.exml.plugin.Plugin"
   id="web-author-add-stripes-to-the-editor-workspace"
   name="web-author-add-stripes-to-the-editor-workspace"
-  description="A plugin for Oxygen XML Web Author that add stripes to the editor workspace"
+  description="A plugin for Oxygen XML Web Author that adds stripes to the editor workspace"
   version="1.0"
   vendor="Syncro Soft">
 </plugin>
