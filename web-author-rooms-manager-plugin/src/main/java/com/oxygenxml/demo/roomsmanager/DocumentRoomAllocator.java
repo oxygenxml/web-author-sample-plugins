@@ -9,8 +9,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ro.sync.basic.util.URLUtil;
 import ro.sync.ecss.extensions.api.access.EditingSessionContext;
@@ -30,7 +30,7 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
   /**
    * Logger for logging.
    */
-  private static final Logger logger = LogManager.getLogger(DocumentRoomAllocator.class);
+  private static final Logger logger = LoggerFactory.getLogger(DocumentRoomAllocator.class);
 
   /**
    * Store room IDs.
