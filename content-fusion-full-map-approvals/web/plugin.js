@@ -12,33 +12,16 @@
     if (mapUrl && !e.options.diffUrl) {
       if (removeAnchor(e.options.url) !== mapUrl) {
         // User was trying to open a topic - open the map instead.
-        e.options.topicToFocus = e.options.url;
-        e.options.url = mapUrl;
+        e.preventDefault();
+
+        setTimeout(() => {
+          // open link on next tick to be sure CF has time to register sync.api.Editor.EventTypes.LINK_OPENED on BEFORE_EDITOR_LOADED.
+          let loadingOptions = {topicToFocus: e.options.url, editReferencesInPlace = 'true'},
+          workspace.openLink(new sync.api.Editor.LinkOpenedEvent(mapUrl, false, loadingOptions, sync.api.Editor.LinkOpenedEvent.Target.SELF));
+        });
       }
-      e.options.editReferencesInPlace = 'true';
-      scrollToTopicOnLinkOpened(e.editor, mapUrl);
     }
   });
-
-  const scrollToTopicOnLinkOpened = function(editor, mapUrl) {
-    editor.listen(sync.api.Editor.EventTypes.LINK_OPENED, function (linkOpenedEvent) {
-      if (linkOpenedEvent.external) {
-        // External links should work normally.
-        return;
-      }
-      // This is used by the "Edit reference" action which is not needed anyway.
-      linkOpenedEvent.$actualUrl = null;
-
-      var openedUrl = removeAnchor(linkOpenedEvent.url);
-      var topic = getTopicElementByUrl(editor, openedUrl);
-      if (topic) {
-        var topicId = topic.getAttribute('id');
-        linkOpenedEvent.url = mapUrl + '#' + topicId;
-      } else {
-        linkOpenedEvent.url = mapUrl;
-      }
-    }, true);
-  };
 
   const removeAnchor = function(url) {
     var anchorStart = url.lastIndexOf('#');
