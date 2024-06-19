@@ -16,7 +16,7 @@
 
         setTimeout(() => {
           // open link on next tick to be sure CF has time to register sync.api.Editor.EventTypes.LINK_OPENED on BEFORE_EDITOR_LOADED.
-          let loadingOptions = {topicToFocus: e.options.url, editReferencesInPlace = 'true'},
+          let loadingOptions = {topicToFocus: e.options.url, editReferencesInPlace: 'true'};
           workspace.openLink(new sync.api.Editor.LinkOpenedEvent(mapUrl, false, loadingOptions, sync.api.Editor.LinkOpenedEvent.Target.SELF));
         });
       }
