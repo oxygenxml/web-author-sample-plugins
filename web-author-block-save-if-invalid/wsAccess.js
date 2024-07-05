@@ -24,7 +24,7 @@ function applicationStarted(pluginWorkspaceAccess) {
  */
 function hasErrors(authorDocumentModel) {
   var errors = authorDocumentModel.getDocumentValidator().getValidationTask().call();
-  return !errors.isEmpty();
+  return errors && !errors.isEmpty();
 }
 
 function applicationClosing(pluginWorkspaceAccess) {
