@@ -1,0 +1,9 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="web-author-load-in-text-mode-plugin"
+  name="web-author-load-in-text-mode-plugin"
+  description="The plugin lets you automatically show the text page when the editor loads"
+  version="1.0"
+  vendor="Syncro Soft">
+</plugin>

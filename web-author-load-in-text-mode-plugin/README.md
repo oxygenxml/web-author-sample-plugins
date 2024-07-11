@@ -1,0 +1,1 @@
+The plugin lets you automatically show the text page when the editor loads
