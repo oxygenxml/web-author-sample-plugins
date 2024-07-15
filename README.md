@@ -183,6 +183,9 @@ Example plugin for Oxygen XML Web Author that defines a custom action for attrib
 It implements the [sync.actions.AttributeEditingActionsProvider](https://www.oxygenxml.com/maven/com/oxygenxml/oxygen-webapp/25.1.0.0/jsdoc/sync.actions.AttributeEditingActionsProvider.html) JS API.
 The sync.actions.AttributeEditingActionsProvider JS API extension should be used when you need to implement a custom UI (or dialog) for choosing attribute values. Another use-case would be if the attribute values are dynamic, either computed client-side or fetched from other servers.
 
+### [web-author-load-in-text-mode-plugin](web-author-load-in-text-mode-plugin)
+The plugin automatically shows the text page when the editor loads.
+
 ## Copyright and License
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
 
