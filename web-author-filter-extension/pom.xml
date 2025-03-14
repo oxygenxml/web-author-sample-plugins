@@ -21,6 +21,9 @@
       <id>oxygenxml</id>
       <name>oXygen XML SDK Maven Repository</name>
       <url>https://oxygenxml.com/maven/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
   </repositories>
 
