@@ -93,14 +93,6 @@ class TablePagination extends sync.formctrls.Enhancer {
       }
     }
 
-    let theadElement;
-    for (let child of Array.from(tableElement.children)) {
-      if (child.localName === "thead") {
-        theadElement = child;
-        break;
-      }
-    }
-
     let tbodyElement;
     for (let child of Array.from(tableElement.children)) {
       if (child.localName === "tbody") {
@@ -108,10 +100,7 @@ class TablePagination extends sync.formctrls.Enhancer {
         break;
       }
     }
-
-    if (theadElement) {
-      toReturn = toReturn.concat(Array.from(theadElement.children));
-    }
+    
     if (tbodyElement) {
       toReturn = toReturn.concat(Array.from(tbodyElement.children));
     }
