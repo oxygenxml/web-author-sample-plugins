@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    class="com.oxygenxml.web_author.pagination.Plugin"
+
+    id="web-author-table-pagination-plugin"
+    name="Web Author Table Pagination Plugin"
+    description="A plugin that contributes table pagination functionality to Web Author"
+    version="1.0"
+    vendor="Syncro Soft">
+
+  <runtime>
+    <librariesFolder name="lib"/>
+    <library name="target/classes" />
+  </runtime>
+  <extension type="AuthorStylesheet" href="pagination-form-control.css"/>
+</plugin>

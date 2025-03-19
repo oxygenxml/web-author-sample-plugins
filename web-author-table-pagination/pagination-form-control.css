@@ -1,0 +1,7 @@
+:root:not(:diff) tgroup:after(1) {
+    content:
+      ""
+      oxy_editor(webappRendererClassName, "com.oxygenxml.web_author.pagination.TablePaginationRenderer");
+    /* Do not show validation errors decorators over the form control. */
+    border-bottom: none;
+}
