@@ -1,4 +1,4 @@
-export default class TablePagination extends sync.formctrls.Enhancer {
+class TablePagination extends sync.formctrls.Enhancer {
   constructor(element, editingSupport) {
     super(element, editingSupport);
 
