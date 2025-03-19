@@ -5,7 +5,9 @@
 
 A plugin that adds a table pagination functionality to tables with more than 10 rows. 
 
-This can improve performance when editing large tables.
+This plugin significantly improves performance when editing very large tables.
+
+*Note:* If you are using a version of Web Author earlier than 27.1 and want to use this plugin, please contact us at support@oxygenxml.com.
 
 ![Plugin in action](./img/table-pagination.gif)
 
