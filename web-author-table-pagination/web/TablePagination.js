@@ -4,16 +4,19 @@ class TablePagination extends sync.formctrls.Enhancer {
 
     this.currentPage_ = null;
     this.pageSize_ = 10;
+    this.expanded_ = null; // will be initialized from the static map
 
     // Do not show validation errors decorators over the form control.
     this.formControl.style.borderBottom = "none";
     this.formControl.style.marginTop = "6px";
 
     this.modelChangedCallback_ = this.updatePaginationOnModelChanged_.bind(this);
-    this.selectionChangedCallback_ = this.updateSelectedPageOnSelectionChange_.bind(this)
+    this.selectionChangedCallback_ = this.updateSelectedPageOnSelectionChange_.bind(this);
   }
 
+  // Static maps to keep state per table DOM element.
   static tablePageNumberMap = new Map();
+  static tableExpandedMap = new Map();
 
   /** @override */
   enterDocument(controller) {
@@ -21,14 +24,16 @@ class TablePagination extends sync.formctrls.Enhancer {
 
     this.tableDomElement_ = this.getParentNode();
 
+    // Retrieve saved state or use defaults.
     this.currentPage_ = TablePagination.tablePageNumberMap.get(this.tableDomElement_.id) || 0;
-    this.editingSupport.listen(sync.api.AuthorEditingSupport.EventType.MODEL_CHANGED, this.modelChangedCallback_);
+    this.expanded_ = TablePagination.tableExpandedMap.get(this.tableDomElement_.id) || false;
 
+    this.editingSupport.listen(sync.api.AuthorEditingSupport.EventType.MODEL_CHANGED, this.modelChangedCallback_);
 
     if (this.editingSupport.getSelectionManager()) {
       this.editingSupport.getSelectionManager().listen(sync.api.SelectionManager.EventType.SELECTION_CHANGED, this.selectionChangedCallback_);
     } else {
-      // fix npe caused by null SelectionManager at load time.
+      // Fix npe caused by null SelectionManager at load time.
       workspace.listenOnce(sync.api.Workspace.EventType.EDITOR_LOADED, e => {
         this.editingSupport.getSelectionManager().listen(sync.api.SelectionManager.EventType.SELECTION_CHANGED, this.selectionChangedCallback_);
       });
@@ -100,7 +105,7 @@ class TablePagination extends sync.formctrls.Enhancer {
         break;
       }
     }
-    
+
     if (tbodyElement) {
       toReturn = toReturn.concat(Array.from(tbodyElement.children));
     }
@@ -110,28 +115,42 @@ class TablePagination extends sync.formctrls.Enhancer {
 
   refreshPaginationHiddenRows_() {
     let rows = this.getRowsHtmlElements_();
-    for (let i = 0; i < rows.length; i++) {
-      let row = rows[i];
-      if (this.currentPage_ * this.pageSize_ <= i && i < (this.currentPage_ + 1) * this.pageSize_) {
-        row.style.display = '';
-      } else {
-        row.style.display = 'none';
+    if (this.expanded_) {
+      // In expanded mode, show all rows.
+      rows.forEach(row => row.style.display = '');
+    } else {
+      for (let i = 0; i < rows.length; i++) {
+        if (this.currentPage_ * this.pageSize_ <= i && i < (this.currentPage_ + 1) * this.pageSize_) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
       }
     }
   }
 
   refreshPaginationButtons_() {
     goog.dom.removeChildren(this.formControl);
+
+    if (this.expanded_) {
+      // When expanded, only show the collapse button.
+      let collapseBtn = this.renderCollapseBtn_();
+      this.formControl.appendChild(collapseBtn);
+      return;
+    }
+
+    // Only display pagination controls if there are at least 2 pages.
     if (this.getNoPages() < 2) {
+      // Hide the pagination area if there's nothing to paginate.
       this.formControl.parentElement.style.display = "none";
       return;
     } else {
       this.formControl.parentElement.style.display = null;
     }
 
+    // Render pagination navigation buttons.
     let previousBtn = this.renderPageBtn_(this.currentPage_ - 1, "<");
     this.formControl.appendChild(previousBtn);
-
 
     let contextPageStart = Math.max(0, this.currentPage_ - 3);
     let contextPageEnd = Math.min(this.getNoPages(), this.currentPage_ + 3);
@@ -160,6 +179,10 @@ class TablePagination extends sync.formctrls.Enhancer {
 
     let nextBtn = this.renderPageBtn_(this.currentPage_ + 1, ">");
     this.formControl.appendChild(nextBtn);
+
+    // Append the expand all pages button.
+    let expandBtn = this.renderExpandBtn_();
+    this.formControl.appendChild(expandBtn);
   }
 
   setPage_(newPage) {
@@ -188,7 +211,7 @@ class TablePagination extends sync.formctrls.Enhancer {
     } else {
       btn.title = "Go to page " + (pageNr + 1);
       btn.addEventListener("click", () => {
-        this.setPage_(pageNr)
+        this.setPage_(pageNr);
       });
       if (this.currentPage_ === pageNr) {
         btn.classList.add("oxy-button--primary");
@@ -201,9 +224,32 @@ class TablePagination extends sync.formctrls.Enhancer {
     let dots = goog.dom.createDom("span", null, "...");
     dots.style.margin = "0 1em";
     dots.style.letterSpacing = "3px";
-
     // Do not show validation errors decorators over the form control.
     dots.style.borderBottom = "none";
     return dots;
+  }
+
+  renderExpandBtn_() {
+    let btn = goog.dom.createDom('button', 'oxy-button', "Display All Rows");
+    btn.title = "Display the entire table";
+    btn.addEventListener("click", () => {
+      this.expanded_ = true;
+      // Save the expanded state in the static map.
+      TablePagination.tableExpandedMap.set(this.tableDomElement_.id, true);
+      this.refresh_();
+    });
+    return btn;
+  }
+
+  renderCollapseBtn_() {
+    let btn = goog.dom.createDom('button', 'oxy-button', "Collapse Table Rows (Enable Pagination)");
+    btn.title = "Collapse the table into pages";
+    btn.addEventListener("click", () => {
+      this.expanded_ = false;
+      // Save the collapsed state in the static map.
+      TablePagination.tableExpandedMap.set(this.tableDomElement_.id, false);
+      this.refresh_();
+    });
+    return btn;
   }
 }
