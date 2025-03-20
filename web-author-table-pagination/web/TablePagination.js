@@ -6,9 +6,7 @@ class TablePagination extends sync.formctrls.Enhancer {
     this.pageSize_ = 10;
     this.expanded_ = null; // will be initialized from the static map
 
-    // Do not show validation errors decorators over the form control.
-    this.formControl.style.borderBottom = "none";
-    this.formControl.style.marginTop = "6px";
+    this.applyFormControlStyles_(this.formControl);
 
     this.modelChangedCallback_ = this.updatePaginationOnModelChanged_.bind(this);
     this.selectionChangedCallback_ = this.updateSelectedPageOnSelectionChange_.bind(this);
@@ -17,6 +15,31 @@ class TablePagination extends sync.formctrls.Enhancer {
   // Static maps to keep state per table DOM element.
   static tablePageNumberMap = new Map();
   static tableExpandedMap = new Map();
+
+  // Apply custom styles to the form control (pagination control)
+  applyFormControlStyles_(formControl) {
+    // Do not show validation errors decorators over the form control.
+    formControl.style.borderBottom = "none";
+
+    // Make it stick to the bottom of the table
+    formControl.style.position = "sticky";
+    formControl.style.bottom = "0";
+
+    // Display flex to center the buttons
+    formControl.style.display = "flex";
+    formControl.style.flexWrap = "wrap";
+    formControl.style.alignItems = "center";
+    formControl.style.justifyContent = "center";
+
+    // It should not be obscured by other elements
+    formControl.style.zIndex = "100";
+
+    // Other styles
+    formControl.style.margin = "10px 0";
+    formControl.style.padding = "10px";
+    formControl.style.background = "white";
+    formControl.style.border = "1px solid lightgray";
+  }
 
   /** @override */
   enterDocument(controller) {
@@ -185,11 +208,42 @@ class TablePagination extends sync.formctrls.Enhancer {
     this.formControl.appendChild(expandBtn);
   }
 
+  setSelectionForNewPage_(newPage) {
+    const rows = this.getRowsHtmlElements_();
+    // Calculate the index for the first row of the new page
+    const firstRowIndex = newPage * this.pageSize_;
+    if (rows[firstRowIndex]) {
+      // get the first cell of the first row of the new page
+      const firstCell = rows[firstRowIndex].querySelector("td");
+      if (firstCell) {
+        if (this.editingSupport.getSelectionManager()) {
+          // set selection at the beginning of the first cell
+          const domNode = this.editingSupport
+              .getDocument()
+              .createApiNodeOrParent(firstCell);
+          let sel = this.editingSupport
+              .getSelectionManager()
+              .createEmptySelectionRelativeToNode(domNode, 0);
+          this.editingSupport.getSelectionManager().setSelection(sel);
+
+          // scroll table into view
+          sel = this.editingSupport
+              .getSelectionManager()
+              .createEmptySelectionBeforeNode(this.tableDomElement_);
+          this.editingSupport.getSelectionManager().scrollSelectionIntoView(sel);
+        }
+      }
+    }
+  }
+
   setPage_(newPage) {
     if (this.canGoToPage_(newPage)) {
       this.currentPage_ = newPage;
       TablePagination.tablePageNumberMap.set(this.tableDomElement_.id, newPage);
       this.refresh_();
+
+      // Set selection to the first cell of the new page
+      this.setSelectionForNewPage_(newPage);
     }
   }
 
@@ -253,3 +307,4 @@ class TablePagination extends sync.formctrls.Enhancer {
     return btn;
   }
 }
+
