@@ -4,10 +4,8 @@ function TablePagination(element, editingSupport) {
   this.currentPage_ = null;
   this.pageSize_ = 10;
   this.expanded_ = null; // will be initialized from the static map
-
-  // Do not show validation errors decorators over the form control.
-  this.formControl.style.borderBottom = "none";
-  this.formControl.style.marginTop = "6px";
+  
+  this.applyFormControlStyles_(this.formControl);
 
   this.modelChangedCallback_ = this.updatePaginationOnModelChanged_.bind(this);
   this.selectionChangedCallback_ = this.updateSelectedPageOnSelectionChange_.bind(this);
@@ -17,6 +15,30 @@ goog.inherits(TablePagination, sync.formctrls.Enhancer);
 // Static maps to keep state per table DOM element.
 TablePagination.tablePageNumberMap = new Map();
 TablePagination.tableExpandedMap = new Map();
+
+TablePagination.prototype.applyFormControlStyles_ = function(formControl) {
+  // Do not show validation errors decorators over the form control.
+  formControl.style.borderBottom = "none";
+
+  // Make it stick to the bottom of the table
+  formControl.style.position = "sticky";
+  formControl.style.bottom = "0";
+
+  // Display flex to center the buttons
+  formControl.style.display = "flex";
+  formControl.style.flexWrap = "wrap";
+  formControl.style.alignItems = "center";
+  formControl.style.justifyContent = "center";
+
+  // It should not be obscured by other elements
+  formControl.style.zIndex = "100";
+
+  // Other styles
+  formControl.style.margin = "10px 0";
+  formControl.style.padding = "10px";
+  formControl.style.background = "white";
+  formControl.style.border = "1px solid lightgray";
+}
 
 TablePagination.prototype.enterDocument = function(controller) {
   sync.formctrls.Enhancer.prototype.enterDocument.call(this, controller);
