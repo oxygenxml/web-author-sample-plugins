@@ -253,11 +253,36 @@ TablePagination.prototype.refreshPaginationButtons_ = function() {
   this.formControl.appendChild(expandBtn);
 };
 
+TablePagination.prototype.setSelectionForNewPage_ = function(newPage) {
+  var rows = this.getRowsHtmlElements_();
+  // Calculate the index for the first row of the new page
+  var firstRowIndex = newPage * this.pageSize_;
+  if (rows[firstRowIndex]) {
+    // get the first cell of the first row of the new page
+    var firstCell = rows[firstRowIndex].querySelector("td");
+    if (firstCell) {
+      if (this.editingSupport.getSelectionManager()) {
+        // set selection at the beginning of the first cell
+        let domNode = this.editingSupport.getDocument().createApiNodeOrParent(firstCell);
+        var sel = this.editingSupport.getSelectionManager().createEmptySelectionRelativeToNode(domNode, 0);
+        this.editingSupport.getSelectionManager().setSelection(sel);
+
+        // scroll table into view
+        sel = this.editingSupport.getSelectionManager().createEmptySelectionBeforeNode(this.tableDomElement_);
+        this.editingSupport.getSelectionManager().scrollSelectionIntoView(sel);
+      }
+    }
+  }
+}
+
 TablePagination.prototype.setPage_ = function(newPage) {
   if (this.canGoToPage_(newPage)) {
     this.currentPage_ = newPage;
     TablePagination.tablePageNumberMap.set(this.tableDomElement_.id, newPage);
     this.refresh_();
+
+    // Set selection to the first cell of the new page
+    this.setSelectionForNewPage_(newPage);
   }
 };
 
