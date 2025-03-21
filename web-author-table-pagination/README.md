@@ -1,7 +1,7 @@
 
 # Web Author Table Pagination Plugin (for Web Author v27.1+)
 
-A plugin that adds a table pagination functionality to tables (that have the <tgroup> element) with more than 10 rows. 
+A plugin that adds a table pagination functionality to tables (that have the `<tgroup>` element) with more than 10 rows. 
 
 This plugin significantly improves performance when editing very large tables.
 
