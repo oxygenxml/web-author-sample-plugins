@@ -1,7 +1,7 @@
 
 # Web Author Table Pagination Plugin (for Web Author v27.1+)
 
-A plugin that adds a table pagination functionality to tables with more than 10 rows. 
+A plugin that adds a table pagination functionality to tables (that have the <tgroup> element) with more than 10 rows. 
 
 This plugin significantly improves performance when editing very large tables.
 
@@ -10,7 +10,7 @@ This plugin significantly improves performance when editing very large tables.
 ![Plugin in action](./img/table-pagination.gif)
 
 How it works:
-- It adds a form control if there are tables with more than 10 rows. This number can be changes easily by editing the code.
+- It adds a form control if there are tables with more than 10 rows - page size is 10 rows (this number can be changes easily by editing the code)
 - There is a button to disable pagination for a table or enable it again.
 - There is an additional editor message when the editor is not in “no tags” mode with a button to enable that mode.
 - When an action (such as undo or find/replace) moves the selection into the table, the specific page containing the selection is shown.
