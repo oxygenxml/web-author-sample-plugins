@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<script xmlns="http://www.oxygenxml.com/ns/framework/extend"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.oxygenxml.com/ns/framework/extend http://www.oxygenxml.com/ns/framework/extend/frameworkExtensionScript.xsd"
+  base="DITA">
+  <name>DITA - Extension to set the '-oxy-contains-draft-comment' pseudo-class</name>
+  <description>This extension sets the '-oxy-contains-draft-comment' pseudo-class on the root element when draft comments are found in the document.</description>
+  <priority>High</priority>
+
+  <classpath inherit="all" xmlns="http://www.oxygenxml.com/ns/framework/extend">
+    <addEntry path="${framework}/lib/web-author-pseudoclass-setter.jar"/>
+  </classpath>
+
+  <extensionPoints>
+    <extension name="extensionsBundle" value="com.oxygenxml.demo.DraftCommentPseudoClassSetter"/>
+  </extensionPoints>
+
+   <author>
+    <css>
+      <addCss path="${framework}/css/draft-comment.css"/>
+    </css>
+  </author>
+</script>

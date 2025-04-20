@@ -1,0 +1,16 @@
+/* CSS for the Draft Comment Detector Plugin */
+
+/* 
+ Style the root element when the '-oxy-contains-draft-comment' pseudo-class is set.
+ We use ::before to add content at the beginning of the document view.
+*/
+:root:-oxy-contains-draft-comment::before {
+    content: "Draft-comments found";
+    display: block;
+    background-color: lightyellow;
+    border: 1px solid orange;
+    padding: 5px 10px;
+    margin: 10px;
+    font-weight: bold;
+    color: darkorange;
+} 
