@@ -13,10 +13,15 @@ workspace.listen(sync.api.Workspace.EventType.BEFORE_EDITOR_LOADED, (e) => {
 // Add a stripe to suggest no tags mode
 workspace.listen(sync.api.Workspace.EventType.EDITOR_LOADED, (e) => {
   let isTagsForced = !!e.editor.options["tags-mode"];
-  if (!isTagsForced && workspace.getOption(sync.OptionTags.SENTINELS_DISPLAY_MODE) !== 'no-tags') {
-    
+  let isStripeAlreadyAdded = document.getElementById('no-tags-stripe');
+
+  if (!isTagsForced && !isStripeAlreadyAdded &&
+    workspace.getOption(sync.OptionTags.SENTINELS_DISPLAY_MODE) !== 'no-tags') {
+      
     // Create an editor stripe with height 27px
     let stripe = workspace.createEditorStripe(27);
+    stripe.id = 'no-tags-stripe';
+
     stripe.classList.add('flash-message-warn', 'vertical-align-children');
 
     // Create and append the text message
