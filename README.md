@@ -186,7 +186,13 @@ The sync.actions.AttributeEditingActionsProvider JS API extension should be used
 ### [web-author-load-in-text-mode-plugin](web-author-load-in-text-mode-plugin)
 The plugin automatically shows the text page when the editor loads.
 
+### [web-author-preview-dialog](web-author-preview-dialog)
+This plugin adds a new action to the DITA toolbar that opens a preview dialog. 
+The dialog displays a sample XML fragment. 
+The XML fragment is styled according to the framework applied to the currently opened document.
+
 ## Copyright and License
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
+
 
 This project is licensed under Apache License 2.0.
