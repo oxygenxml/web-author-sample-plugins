@@ -3,7 +3,7 @@ class PreviewAction extends sync.actions.AbstractAction {
    * @type {sync.api.Editor} editor The editor object.
    */
   constructor(editor) {
-    // Shortcut: Meta+L pe Mac, Ctrl+L pe alte platforme
+
     super(editor, 'M1 L');
     this.editor = editor;
   }
@@ -15,7 +15,7 @@ class PreviewAction extends sync.actions.AbstractAction {
 
   /** @override */
   isEnabled() {
-    // Acțiunea e mereu activă
+    
     return true;
   }
 
@@ -27,7 +27,7 @@ class PreviewAction extends sync.actions.AbstractAction {
       return;
     }
 
-    // Creează dialogul de preview
+    // Create preview dialog
     const dialog = workspace.createDialog();
     dialog.setPreferredSize(750, 700);
     dialog.setResizable(true);
@@ -54,7 +54,7 @@ class PreviewAction extends sync.actions.AbstractAction {
   }
 }
 
-// Înregistrează acțiunea înainte de încărcarea editorului
+
 workspace.listen(sync.api.Workspace.EventType.BEFORE_EDITOR_LOADED, function(e) {
   var editor = e.editor;
   editor.getActionsManager().registerAction('preview.dialog', new PreviewAction(editor));
@@ -62,7 +62,7 @@ workspace.listen(sync.api.Workspace.EventType.BEFORE_EDITOR_LOADED, function(e) 
   addToDitaToolbar(editor, 'preview.dialog');
 });
 
-// Actualizează statusul acțiunii la schimbarea selecției
+
 workspace.listen(sync.api.Workspace.EventType.EDITOR_LOADED, function(e) {
   var editor = e.editor;
 
@@ -74,7 +74,7 @@ workspace.listen(sync.api.Workspace.EventType.EDITOR_LOADED, function(e) {
   );
 });
 
-// Funcție pentru adăugarea acțiunii în toolbar-ul DITA
+
 function addToDitaToolbar(editor, actionId) {
   editor.listen(sync.api.Editor.EventTypes.ACTIONS_LOADED, function(e) {
     var actionsConfig = e.actionsConfiguration;
@@ -98,3 +98,4 @@ function addToDitaToolbar(editor, actionId) {
     }
   });
 }
+
