@@ -1,0 +1,9 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="preview-dialog"
+  name="Preview dialog action"
+  description="This plugin adds a toolbar action that shows a preview dialog displaying an XML fragment."
+  version="1.0"
+  vendor="Syncro Soft">
+</plugin>
