@@ -187,11 +187,12 @@ The sync.actions.AttributeEditingActionsProvider JS API extension should be used
 The plugin automatically shows the text page when the editor loads.
 
 ### [web-author-preview-xml-fragment](web-author-preview-xml-fragment)
-This plugin uses the 'loadPreview' API to create a preview dialog in which a DITA fragment is inserted.
+This plugin uses the `loadPreview` API to create a preview dialog in which a DITA fragment is inserted.
 
 ## Copyright and License
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
 
 
 This project is licensed under Apache License 2.0.
+
 
