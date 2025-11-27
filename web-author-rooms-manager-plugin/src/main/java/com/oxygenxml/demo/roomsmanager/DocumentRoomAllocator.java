@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -47,6 +49,11 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
    */
   private Map<String, AtomicInteger> mapRoomIdToPeersCounter = new HashMap<>();
 
+  /**
+   * Executor service used when closing a editing session.
+   */
+  private ExecutorService executor = Executors.newCachedThreadPool();
+  
   @Override
   public void editingSessionAboutToBeStarted(
       String sessionId, String licenseeId, URL systemId, Map<String, Object> options)
@@ -104,28 +111,34 @@ class DocumentRoomAllocator extends WebappEditingSessionLifecycleListener{
 
   @Override
   public void editingSessionClosed(String sessionId, AuthorDocumentModel documentModel) {
-    Lock lock = getLock(getDocUrl(documentModel));
-    lock.lock();
-    try {
-      URL systemId = getDocUrl(documentModel);
-      String roomId = roomIdsStore.getRoomId(systemId)
-          .orElseThrow(IllegalStateException::new);
+    URL docUrl = getDocUrl(documentModel);
+    
+    executor.execute(new Runnable() {
+      @Override
+      public void run() {
+        Lock lock = getLock(docUrl);
+        lock.lock();
+        try {
+          String roomId = roomIdsStore.getRoomId(docUrl)
+              .orElseThrow(IllegalStateException::new);
 
-      // Close the room when it becomes empty.
-      AtomicInteger peersCounter = getPeersCounter(roomId);
-      if(peersCounter.decrementAndGet() == 0) {
-        logger.warn("Close empty room {}", roomId);
-        Room room = RoomsManager.INSTANCE.getRoom(roomId)
-            .orElseThrow(IllegalStateException::new);
-        room.close();
+          // Close the room when it becomes empty.
+          AtomicInteger peersCounter = getPeersCounter(roomId);
+          if(peersCounter.decrementAndGet() == 0) {
+            logger.warn("Close empty room {}", roomId);
+            Room room = RoomsManager.INSTANCE.getRoom(roomId)
+                .orElseThrow(IllegalStateException::new);
+            room.close();
 
-        roomIdsStore.setRoomId(systemId, null);
-        mapSystemIdToLock.remove(systemId);
-        mapRoomIdToPeersCounter.remove(roomId);
+            roomIdsStore.setRoomId(docUrl, null);
+            mapSystemIdToLock.remove(docUrl);
+            mapRoomIdToPeersCounter.remove(roomId);
+          }
+        } finally {
+          lock.unlock();
+        }
       }
-    } finally {
-      lock.unlock();
-    }
+    });
   }
 
   /**
