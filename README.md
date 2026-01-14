@@ -189,10 +189,14 @@ The plugin automatically shows the text page when the editor loads.
 ### [web-author-preview-xml-fragment](web-author-preview-xml-fragment)
 This plugin uses the `loadPreview` API to create a preview dialog in which a DITA fragment is inserted.
 
+### [web-author-change-tracking-styles-with-css](web-author-change-tracking-styles-with-css)
+Sample plugin that shows how to customize the styles of change tracking markers (inserted and deleted content) in Web Author using CSS.
+
 ## Copyright and License
 Copyright (C) 2020 Syncro Soft SRL. All rights reserved.
 
 
 This project is licensed under Apache License 2.0.
+
 
 
