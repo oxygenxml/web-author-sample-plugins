@@ -1,0 +1,4 @@
+.oxy-marker[data-type="CHANGE_INSERT"],
+.oxy-marker[data-type="CHANGE_DELETE"] {
+  color: red !important;
+}

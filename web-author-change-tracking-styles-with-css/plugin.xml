@@ -1,0 +1,15 @@
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="custom-change-tracking-styles-plugin"
+  name="Load CSS for change tracking styles customization"
+  description="Loads a custom CSS that customizes the change tracking styles."
+  version="1.0"
+  vendor="Syncro Soft">
+
+    <!-- Web Author will serve the content of the `web/static/` folder
+              at `WEB_AUTHOR_URL/plugin-resources/custom-ui-style-plugin/` -->
+    <extension type="WebappStaticResourcesFolder" path="web/static" href="custom-ui-style-plugin"/>
+</plugin>
+
