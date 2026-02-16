@@ -66,6 +66,11 @@ class TablePagination extends sync.formctrls.Enhancer {
   }
 
   updateSelectedPageOnSelectionChange_() {
+    // Don't update selection/page when table is expanded (pagination disabled).
+    if (this.expanded_) { 
+      return;
+    }
+
     let selection = this.editingSupport.getSelectionManager().getSelection();
     let nodeAtSelection = selection.getNodeAtSelection();
     if (nodeAtSelection && this.tableDomElement_.compareDocumentPosition(nodeAtSelection) & window.Node.DOCUMENT_POSITION_CONTAINED_BY) {
