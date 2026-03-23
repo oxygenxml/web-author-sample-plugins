@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+<plugin
+  class="ro.sync.exml.plugin.Plugin"
+  id="web-author-custom-user-mentions"
+  name="Web Author Custom User Mentions"
+  description="Replaces the default @mention proposals with a custom user list."
+  version="1.0"
+  vendor="Syncro Soft">
+</plugin>

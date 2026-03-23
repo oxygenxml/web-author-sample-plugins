@@ -160,6 +160,9 @@ Plugin that replaces the "Paste Special" action with two individual actions: `Pa
 ### [web-author-comment-only](web-author-comment-only)
 Plugin that switches Web Author to a comments-only mode.
 
+### [web-author-custom-user-mentions](web-author-custom-user-mentions)
+Plugin that replaces the default `@` mention proposals in review comments with a custom grouped users provider.
+
 ### [web-author-custom-author-style](web-author-custom-author-style)
 Plugin that enforces a custom stylesheet for all XML documents loaded in Web Author.
 
