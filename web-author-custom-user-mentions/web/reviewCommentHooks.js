@@ -10,13 +10,11 @@ const KNOWN_USERNAMES = new Set([
 ]);
 
 /**
- * Safely read the mentioned usernames from a comment.
- *
- * @param {?Object} comment The review comment.
+ * @param {!Object} comment The review comment.
  * @return {!Array<string>}
  */
 function getMentionedUserNames(comment) {
-  return comment?.getMentionedUserNames?.() || [];
+  return comment.getMentionedUserNames();
 }
 
 /**
@@ -30,22 +28,11 @@ function formatMentionedUsers(mentionedUsers) {
 }
 
 /**
- * Use the updated comment when available, otherwise keep the existing one.
- *
- * @param {?Object} newComment The updated review comment.
- * @param {?Object} oldComment The existing review comment.
- * @return {?Object}
- */
-function getUpdatedComment(newComment, oldComment) {
-  return newComment || oldComment;
-}
-
-/**
  * Log a demo action for mentioned users.
  *
  * @param {string} hookName The hook name.
  * @param {string} actionDescription The demo action.
- * @param {?Object} comment The review comment.
+ * @param {!Object} comment The review comment.
  * @return {!Promise<void>}
  */
 function logMentionedUsersAction(hookName, actionDescription, comment) {
@@ -71,11 +58,11 @@ class ValidatingCommentHook extends sync.api.author.ReviewCommentHook {
   /** @override */
   beforeCommentEdited(newComment, oldComment) {
     console.log('ValidatingCommentHook: beforeCommentEdited');
-    return this.validateMentionedUsers_(getUpdatedComment(newComment, oldComment));
+    return this.validateMentionedUsers_(newComment);
   }
 
   /**
-   * @param {?Object} comment The review comment to validate.
+   * @param {!Object} comment The review comment to validate.
    * @return {!Promise<void>}
    * @private
    */
@@ -110,11 +97,11 @@ class NotifyingCommentHook extends sync.api.author.ReviewCommentHook {
   /** @override */
   commentEdited(newComment, oldComment) {
     console.log('NotifyingCommentHook: commentEdited');
-    return this.notifyMentioned_(getUpdatedComment(newComment, oldComment));
+    return this.notifyMentioned_(newComment);
   }
 
   /**
-   * @param {?Object} comment The review comment.
+   * @param {!Object} comment The review comment.
    * @return {!Promise<void>}
    * @private
    */

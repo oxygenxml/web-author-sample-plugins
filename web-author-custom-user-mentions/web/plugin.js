@@ -25,20 +25,13 @@ class DemoUserMentionProposalsProvider extends sync.api.author.UserMentionPropos
 }
 
 workspace.listen(sync.api.Workspace.EventType.EDITOR_LOADED, function(e) {
-  const editor = e.editor;
-  const editingSupport = editor?.getEditingSupport?.() || null;
-  if (!editingSupport) {
+  const editingSupport = e.editor.getEditingSupport();
+
+  if (editingSupport.getType() !== sync.api.Editor.EditorTypes.AUTHOR) {
     return;
   }
 
-  if (editingSupport.getType?.() !== sync.api.Editor.EditorTypes.AUTHOR) {
-    return;
-  }
-
-  const reviewCommentsManager = editingSupport.getReviewCommentsManager?.() || null;
-  if (!reviewCommentsManager) {
-    return;
-  }
+  const reviewCommentsManager = editingSupport.getReviewCommentsManager();
 
   reviewCommentsManager.setUserMentionProposalsProvider(
     new DemoUserMentionProposalsProvider());
