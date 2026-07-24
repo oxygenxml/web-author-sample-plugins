@@ -55,6 +55,9 @@ This sample plugin adds a button to the toolbar to allow users to easily enable 
 ### [web-author-block-deleting-comments](web-author-block-deleting-comments)
 Plugin that blocks a user from deleting review comments added by another user.
 
+### [web-author-block-readonly-topic](web-author-block-readonly-topic)
+Plugin that makes DITA topics referenced by a topicref with `outputclass="readonly"` read-only, showing a custom message instead of the built-in "Use Edit Reference" one.
+
 ### [web-author-block-deleting-suggestions](web-author-block-deleting-suggestions)
 Plugin that blocks a user from deleting tracked changes made by another user.
 
