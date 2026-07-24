@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  id="web-author-block-readonly-topic"
+  name="web-author-block-readonly-topic"
+  description="A plugin for oXygen XML Web Author that makes DITA topics referenced by a topicref with outputclass=&quot;readonly&quot; read-only and shows a custom message instead of the built-in 'Use Edit Reference' one."
+    version="${project.nosnapshot.version}"
+    vendor="Syncro Soft">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <extension type="WorkspaceAccess" class="com.oxygenxml.ReadOnlyTopicMessagePluginExtension"/>
+</plugin>
