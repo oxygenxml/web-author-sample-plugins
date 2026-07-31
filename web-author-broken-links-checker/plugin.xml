@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+    id="web-author-broken-links-checker"
+    name="web-author-broken-links-checker"
+    description="Reports broken href/conref links in the Web Author Validation panel."
+    version="${project.nosnapshot.version}"
+    vendor="Sample">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <extension type="WorkspaceAccess"
+	  class="com.oxygenxml.CustomWorkspaceAccessPluginExtension"/>
+</plugin>
