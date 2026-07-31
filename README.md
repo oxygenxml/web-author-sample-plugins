@@ -102,6 +102,9 @@ Plugin that allows you to add automatically-computed values in a table cell.
 ### [web-author-validation-problems-filter](web-author-validation-problems-filter)
 Sample plugin that removes all the warnings from the validation result list.
 
+### [web-author-broken-links-checker](web-author-broken-links-checker)
+Sample plugin that reports broken href/conref links as validation errors in the Validation panel.
+
 ### [web-author-view-file-as-text](web-author-view-file-as-text)
 Plugin contributes an action to choose a file and view it as text.
 
