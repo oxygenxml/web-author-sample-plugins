@@ -70,6 +70,9 @@ Plugin that fixes the line separator in review comments to Linux-style. This plu
 ### [web-author-document-preview-dialog-plugin](web-author-document-preview-dialog-plugin)
 This sample plugin uses the editor.previewAuthorDocument to let the user preview another XML document inside a dialog. The user has to browse for a file, then the file will be displayed inside a dialog.
 
+### [web-author-editing-sessions-plugin](web-author-editing-sessions-plugin)
+Sample plugin that shows in the Administration Page (Plugins -> Editing sessions viewer -> Configure...) the users that currently have documents open, using the WebappEditingSessionLifecycleListener API. For each open document it shows the user name, the document URL, when it was opened and when it was last edited. Useful, for example, to find out who is using the server before restarting it.
+
 ### [web-author-elements-view](web-author-elements-view)
 A plugin that contributes an 'Elements' view that displays elements that can be inserted at the caret position
 
