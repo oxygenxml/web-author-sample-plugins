@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The plugin.dtd file is located in the OXYGEN_INSATALL_DIR/plugins directory -->
+<!DOCTYPE plugin SYSTEM "../plugin.dtd">
+
+<plugin
+  id="web-author-editing-sessions-plugin"
+  name="Editing sessions viewer"
+  description="Shows in the Administration Page (Plugins -> Editing sessions viewer -> Configure) the users that currently have documents open in Web Author."
+  version="1.0"
+  vendor="Syncro Soft">
+
+  <runtime>
+    <librariesFolder name="lib" />
+    <library name="target/classes" />
+    <librariesFolder name="target/lib" />
+  </runtime>
+
+  <!-- Tracks the editing sessions. -->
+  <extension type="WorkspaceAccess" class="com.oxygenxml.sessions.EditingSessionsTracker"/>
+  <!-- The page displayed in the Administration Page. role="config" is required for the
+       "Configure..." button to be shown for this plugin. -->
+  <extension type="WebappServlet" role="config" class="com.oxygenxml.sessions.EditingSessionsAdminPage"/>
+  <!-- Serves web/static/admin-page.js at {context}/plugin-resources/editing-sessions/admin-page.js
+       (the Administration Page CSP does not allow inline scripts). -->
+  <extension type="WebappStaticResourcesFolder" path="web/static" href="editing-sessions"/>
+</plugin>
